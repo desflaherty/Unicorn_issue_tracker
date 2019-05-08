@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="form-display left">
+            <!--
+            
+            <form action="" method="get">
+                <input class="input" type="text" name="q">
+                <button class="btn-search" type ="submit">Search</button>
+                <a href="features.html"><button class="btn-search">Reset</button></a>
+            </form>
+        </div>
+        -->
+          <p class="feature-heading center">Features</p>
+        
+       
+<div class="feature-description center">
+    <p class="feature-text-b">We spend 50% of our time developing the most upvoted Features. If
+    there is a Feature you would like to have developed,</p>
+    <p class="feature-text-b">then you can add that Feature to your cart, and checkout at a cost of €100 per upvote.
+    </p>
+ </div>        
+
+{% if user.is_authenticated %}
+        <div class='center'>
+            <a class='btn btn-primary add-feature-btn' href=""><i class="fa fa-plus"></i> Add
+            Feature</a>
+        </div>
+        {% endif %}
+
+
+<div class="row row-flex">
+    {% for feature in features %}
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+            <div class="panel-body">
+               
+                
+                <h2>{{features.name }}</h2>
+               
+                <p class="feature-description">{{ features.description }}</p>
+                
+                <form method='get' class='inline' action="">
+                        <div class=''>
+                            <button type='submit' class=' btn btn-primary inline'>View Feature </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}

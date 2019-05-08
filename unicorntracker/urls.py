@@ -16,8 +16,15 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
+from features import urls as urls_features
+from features.views import all_features
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', all_features, name='index'),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^features/', include(urls_features)),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
