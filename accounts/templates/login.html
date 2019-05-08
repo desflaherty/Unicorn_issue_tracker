@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform">
+<div class="container">
+    <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
+    <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform login-form">
         <fieldset class="form-group">
-            <legend>Login</legend>
+            <legend class="legend">Login</legend>
             {% csrf_token %}
             {{ user_form | as_bootstrap }}
-            
-             <p><a href="{% url 'password_reset' %}">Forgot my password</a></p>
-             
+             <p>If you have forgotten your password, <a href="{% url 'password_reset' %}">Reset it here</a></p>
             <button type="submit" class="btn btn-primary">Login</button>
         </fieldset>
     </form>
+    </div>
+    </div>
+    </div>
+{% include 'footer.html' %}
 {% endblock %}
