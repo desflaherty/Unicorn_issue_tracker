@@ -33,7 +33,7 @@
                     <li><a href="{% url 'features' %}"><i class="fa fa-plus"></i> Features</a></li>
                     {% if user.is_authenticated %}
                      <li>
-                        <a href ="">
+                        <a href ="{% url 'view_cart' %}">
                         <i class ="fa fa-shopping-cart"></i> Cart
                         {% if feature_count > 0 %}
                         <label class="badge badge-warning">{{feature_count}}</label>
