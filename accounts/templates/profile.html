@@ -1,5 +1,30 @@
-{% extends "base.html" %}
-{% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+{% extends "base.html" %} {% block content %}
+<div class='center profile-head'>
+
+    <div class="profile-container">
+        <div class="profile-bg " style="max-width: 100%;">
+            <div class="profile-header center">
+                <h1>My Profile</h1>
+            </div>
+            <div class="profile-body center">
+                <table class='center inline'>
+                     <tr>
+                        <td class="profile-text profile-text-b">ID&#58;</td>
+                        <td class="profile-text">{{ user.id }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-text profile-text-b">Username&#58;</td>
+                        <td class="profile-text">{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-text profile-text-b">Email&#58;</td>
+                        <td class="profile-text">{{ user.email}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {% endblock %}
