@@ -6,3 +6,5 @@ class FeaturesForm(forms.ModelForm):
     class Meta:
         model = Features
         fields = ['name', 'description']
+        
+     
