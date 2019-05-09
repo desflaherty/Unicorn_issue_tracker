@@ -31,11 +31,29 @@
 
 <div class="row row-flex">
     {% for feature in features %}
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-4 display panel panel-default center">
             <div class="panel-body">
-                <h2>{{feature.name }}</h2>
+                 {% if feature.status == 'ToDo' %}
+                <p class='red circle'></p>
+                {% elif feature.status == 'Doing' %}
+                <p class='orange circle'></p>
+                {% elif feature.status == 'Done' %}
+                 <p class='green circle'></p>
+                  {% endif %}
+                <h4 class="feature-text-b">{{feature.name }}</h4>
                
-                <p class="feature-description">{{feature.description }}</p>
+               <p class=' inline feature-text-b'>Status&#58;</p>
+                {% if feature.status == 'ToDo' %}
+                <p class='inline status-todo'>{{ feature.status }}</p>
+                {% elif feature.status == 'Doing' %}
+                <p class='inline status-doing'>{{ feature.status }}</p>
+                {% elif feature.status == 'Done' %}
+                <p class='inline status-done'>{{ feature.status }}</p>
+                {% endif %}
+               
+               <p>Issued&#58;{{ feature.created_date }}</p>
+               
+                <p>{{feature.description }}</p>
                 
                 <form method='get' class='inline' action="{% url 'feature_detail' feature.id %}">
                         <div class=''>
@@ -53,5 +71,5 @@
 
 
 
-
+{% include 'footer.html' %}
 {% endblock %}

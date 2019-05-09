@@ -67,12 +67,6 @@ caption p {
 
 
 
-.feature-description {
-    min-height: 40px;
-}
-
-
-
 .alert-success {
   background-color:#2e7716
 }
@@ -267,6 +261,49 @@ footer {
 .add-feature-btn {
     margin-top: 20px;
 }
+
+.status-todo {
+    color: #9e0e0e;
+    font-weight: bold;
+}
+
+.status-doing {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-done {
+    color: green;
+    font-weight: bold;
+}
+
+.feature-text-b {
+    font-weight: bold;
+}
+
+
+.circle {
+	border-radius: 50%;
+	width: 15px;
+	height: 15px; 
+	
+}
+
+.red {
+background-color:#9e0e0e;    
+}
+
+.orange {
+background-color: orange;    
+}
+
+.green {
+    background-color: green; 
+}
+
+
+
+/**************FOOTER FORM STYLING************************/
 
 .footer-block {
     width: 100%;
