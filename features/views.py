@@ -9,9 +9,29 @@ def all_features(request):
     return render(request, 'features.html', {'features': features})
 
 
+def feature_detail(request, id):
+    """Renders a view of an individual feature"""
+
+    features = get_object_or_404(Features, id=id)
+
+
+    features.save()
+
+
+    return render(request, "feature_details.html", {
+                                                   'items': features
+                                                   })
+
+
+
+
+
+
+
+
 @login_required
 def add_edit_feature(request, id=None):
-    """Renders the add or edit page and saves posted tickets  """
+    """Renders the add or edit page and saves features  """
 
     features = get_object_or_404(Features, id=id) if id else None
     user = str(request.user)
