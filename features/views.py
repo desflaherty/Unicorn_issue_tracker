@@ -1,6 +1,6 @@
 from django.shortcuts import render,reverse,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Features
+from .models import Features, UpvoteFeature
 from django.contrib.auth.models import User
 from .forms import FeaturesForm
 
@@ -13,20 +13,22 @@ def feature_detail(request, id):
     """Renders a view of an individual feature"""
 
     features = get_object_or_404(Features, id=id)
-
+    
+    upvotes = UpvoteFeature.objects.filter(upvoted_feature=features)
+    
+    upvoted = False
+    user = str(request.user)
+    for item in upvotes:
+        item = str(item)
+        if item == user:
+            upvoted = True
 
     features.save()
 
 
-    return render(request, "feature_details.html", {
+    return render(request, "feature_details.html", {'upvoted': upvoted,
                                                    'items': features
                                                    })
-
-
-
-
-
-
 
 
 @login_required
@@ -60,3 +62,31 @@ def add_edit_feature(request, id=None):
         form = FeaturesForm(instance=features)
     return render(request, 'add_feature.html', {'add_edit': add_edit,
                                                'form': form})
+                                               
+                                               
+@login_required
+def upvote_feature(request):
+    """Adds one upvote point to the feature  """
+
+    cart = request.session.get('cart', {})
+    upvote_list = []
+
+    for id, quantity in cart.items():
+        feature = get_object_or_404(Features, pk=id)
+        upvote_list.append(id)
+
+    for id in upvote_list:
+        feature_name = get_object_or_404(
+            Features, id=id)
+        try:
+            upvote = get_object_or_404(
+                UpvoteFeature, user=request.user, upvoted_feature=feature_name)
+        except:
+            upvote = UpvoteFeature()
+        upvote.user = request.user
+        upvote.upvoted_feature = feature_name
+        feature_name.upvotes += 1
+        feature_name.save()
+        upvote.save()
+    request.session['cart'] = {}
+    return redirect(reverse('index'))                                               

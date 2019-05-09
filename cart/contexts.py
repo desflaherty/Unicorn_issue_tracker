@@ -10,13 +10,19 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     cart_items = []
+    upvote_list = []
+    price = 100
     total = 0
     feature_count = 0
-    
     for id, quantity in cart.items():
         feature = get_object_or_404(Features, pk=id)
-        total += quantity * feature.price
+        upvote_list.append(id)
         feature_count += quantity
-        cart_items.append({'id': id, 'quantity': quantity, 'feature': feature})
-    
-    return {'cart_items': cart_items, 'total': total, 'feature_count': feature_count}
+        total += quantity * price
+        cart_items.append({'id': id, 'quantity': quantity,
+                           'feature': feature, 'price': price})
+
+    return {'feature_count': feature_count,
+            'cart_items': cart_items,
+            'total': total,
+            'upvote_list': upvote_list}

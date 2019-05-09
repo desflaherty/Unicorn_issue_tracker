@@ -1,3 +1,94 @@
-{% extends "base.html" %} {% block content %}
-<h1>Feature Details</h1>
-{% endblock %}
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+{% block content%}
+<div class="container center pos-r">
+    <a class="btn btn-primary back-btn" href="{% url 'features' %}">Back</a>
+    <div class='inline pos-r'>
+        <h1 class='text-shadow'>{{items.name}}</h1>
+        <div class="line "></div>
+
+        {% if user.username == 'admin' %}
+        <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
+            Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        
+        
+        <form class='inline' method="post" action="{% url 'add_to_cart' items.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1">
+
+            {% if upvoted %}
+
+            <div id="repeated-upvote-btn" class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+
+            <div class="upvote-btn-hidden">
+                <div class="upvote-confirm">
+
+                    <div class="card-header bg-dark center">
+                        <h5>Add to Cart?</h5>
+                    </div>
+
+                    <p><b>You have upvoted this feature before. Are you sure you would like to add this to the cart
+                            again?</b>
+                    </p>
+
+                    <button type='submit' class='btn btn-primary'>Yes</button>
+                    <div id='upvote-no' class='btn btn-primary'>No</div>
+
+                </div>
+            </div>
+
+            {% else %}
+            <button type='submit' class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></button>
+            {% endif %}
+
+        </form>
+
+       
+       
+
+        {% else %}
+        <div class='btn btn-secondary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+        {% endif %}
+
+        <br>
+
+        <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
+        <p class='inline upvotes text-shadow'><b>Upvotes:</b> {{items.upvotes}}</p>
+
+        <br>
+
+        <p class=' inline feature-text-b'>Status&#58;</p>
+                {% if feature.status == 'ToDo' %}
+                <p class='inline status-todo'>{{ feature.status }}</p>
+                {% elif feature.status == 'Doing' %}
+                <p class='inline status-doing'>{{ feature.status }}</p>
+                {% elif feature.status == 'Done' %}
+                <p class='inline status-done'>{{ feature.status }}</p>
+                {% endif %}
+
+    </div>
+
+    <div class='center comments'>
+        <div class="ticket-description inline">
+
+        
+
+            <div>
+                
+                <p class='description'>{{items.description}}</p>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+        
+</div>
+<div class="block"></div>
+{% include 'footer.html' %}
+{% endblock %}}
