@@ -25,7 +25,7 @@
 
 {% if user.is_authenticated %}
         <div class='center'>
-            <a class='btn btn-primary add-feature-btn' href=""><i class="fa fa-plus"></i> Add
+            <a class='btn btn-primary add-feature-btn' href="{% url 'add_feature' %}"><i class="fa fa-plus"></i> Add
             Feature</a>
         </div>
         {% endif %}
@@ -37,9 +37,9 @@
             <div class="panel-body">
                
                 
-                <h2>{{features.name }}</h2>
+                <h2>{{feature.name }}</h2>
                
-                <p class="feature-description">{{ features.description }}</p>
+                <p class="feature-description">{{feature.description }}</p>
                 
                 <form method='get' class='inline' action="">
                         <div class=''>

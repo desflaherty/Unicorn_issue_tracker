@@ -6,9 +6,9 @@
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
 
         {% if add_edit %}
-        <h1>Edit Ticket</h1>
+        <h1>Edit Feature</h1>
         {% else %}
-        <h1>Add Ticket</h1>
+        <h1>Add Feature</h1>
         {% endif %}
 
         <form enctype="multipart/form-data" method="post">
@@ -19,15 +19,12 @@
                 <label for="id_status" class="control-label required-field ">
                     Status
                 </label>
-
                 <div>
-
-                    <select name="status" class=" form-control" id="id_status">
+                    <select name="status" class="form-control" id="id_status">
                         <option value="ToDo" selected>To Do</option>
                         <option value="Doing">Doing</option>
                         <option value="Done">Done</option>
                     </select>
-
                 </div>
             </div>
 
