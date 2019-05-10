@@ -1,8 +1,10 @@
 from django.shortcuts import render,reverse,redirect, get_object_or_404
+from .forms import FeaturesForm
 from django.contrib.auth.decorators import login_required
 from .models import Features, UpvoteFeature
 from django.contrib.auth.models import User
-from .forms import FeaturesForm
+from django.utils import timezone
+
 
 def all_features(request):
     features = Features.objects.all()
@@ -23,6 +25,7 @@ def feature_detail(request, id):
         if item == user:
             upvoted = True
 
+    features.views += 1
     features.save()
 
 
@@ -46,17 +49,26 @@ def add_edit_feature(request, id=None):
         if form.is_valid():
             form = form.save(commit=False)
         if user == 'admin' or user == 'testadmin':
-                form.status = request.POST.get('status')    
-            
+                form.status = request.POST.get('status')  
+                if str(form.status) == 'Doing':
+                    form.waiting_date = None
+                    form.in_progress_date = timezone.now()
+                elif str(form.status) == 'Done':
+                    form.in_progress_date = None
+                    form.completion_date = timezone.now()
         if features == None:
                 form.username = request.user
+                form.views = -1
+                form.created_date = timezone.now()
+                form.waiting_date = timezone.now()
                 form.save()
                 return redirect(reverse(all_features))
                 
         else:
                 form.username = features.username 
+                form.views -= 1
                 form.save()
-                return redirect(features, id)
+                return redirect(feature_detail, id)
       
     else:
         form = FeaturesForm(instance=features)
