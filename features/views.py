@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Features, UpvoteFeature
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def all_features(request):
@@ -27,13 +28,18 @@ def feature_detail(request, id):
         if item == user:
             upvoted = True
 
+    comments = Comments.objects.filter(feature_ticket=id).order_by('created_date')
+    comments_number = comments.count()
+    comment_form = CommentForm()
     features.views += 1
     features.save()
 
-
+   
     return render(request, "feature_details.html", {'upvoted': upvoted,
-                                                   'items': features
-                                                   })
+                                                   'items': features,
+                                                   'comment_form': comment_form,
+                                                   'comments': comments,
+                                                   'comments_number':comments_number})
 
 
 
@@ -48,7 +54,6 @@ def add_comment_features(request, id=id):
     if comment_form.is_valid():
         instance = comment_form.save(commit=False)
         instance.username = request.user
-        
         instance.feature_ticket = feature
         
         comment_form.save()
