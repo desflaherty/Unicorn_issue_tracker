@@ -32,3 +32,14 @@ class UpvoteFeature(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+
+class Comments(models.Model):
+    feature_ticket = models.ForeignKey(Features, null=True)
+    username = models.ForeignKey(User, null=None)
+    comment = models.TextField(blank=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.comment

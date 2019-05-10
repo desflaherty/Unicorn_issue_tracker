@@ -1,5 +1,7 @@
 from django.shortcuts import render,reverse,redirect, get_object_or_404
 from .forms import FeaturesForm
+from .forms import CommentForm
+from .models import Comments
 from django.contrib.auth.decorators import login_required
 from .models import Features, UpvoteFeature
 from django.contrib.auth.models import User
@@ -32,6 +34,27 @@ def feature_detail(request, id):
     return render(request, "feature_details.html", {'upvoted': upvoted,
                                                    'items': features
                                                    })
+
+
+
+@login_required
+def add_comment_features(request, id=id):
+    """Saves a posted comment  """
+
+    feature = get_object_or_404(Features, id=id)
+   
+
+    comment_form = CommentForm(request.POST, request.FILES)
+    if comment_form.is_valid():
+        instance = comment_form.save(commit=False)
+        instance.username = request.user
+        
+        instance.feature_ticket = feature
+        
+        comment_form.save()
+
+    return redirect(feature_detail, id)
+
 
 
 @login_required
@@ -83,8 +106,8 @@ def upvote_feature(request):
     cart = request.session.get('cart', {})
     upvote_list = []
 
-    for id, quantity in cart.items():
-        feature = get_object_or_404(Features, pk=id)
+    for id  in cart.items():
+       
         upvote_list.append(id)
 
     for id in upvote_list:
