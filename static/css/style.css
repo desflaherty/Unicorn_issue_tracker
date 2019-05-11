@@ -103,6 +103,8 @@ border-bottom: 0;
 .btn-success {
   background-color:#2e7716;
   border-color:#2e7716;
+  margin-bottom:10px;
+  
 }
 
 .navbar-collapse {
@@ -379,7 +381,10 @@ background-color: orange;
     background-color: #343a40!important;
 }
 
-
+.summary-text {
+    font-size:20px;
+    margin-top: 20px;
+}
 
 
 
