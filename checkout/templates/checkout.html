@@ -52,13 +52,13 @@
                                 <table class='summary-table inline'>
 
                                     <tr class='bottom-border'>
-                                        <th>Feature Ticket</th>
+                                        <th>Feature Request</th>
                                         <th>Price</th>
                                     </tr>
 
                                     {% for item in cart_items %}
                                     <tr>
-                                        <td>{{ item.ticket.name }}</td>
+                                        <td>{{ item.feature.name }}</td>
                                         <td><i class="fa fa-eur" aria-hidden="true"></i>{{item.price}}</td>
                                     </tr>
                                     {% endfor %}
@@ -100,7 +100,8 @@
 </div>
 <div class="block"></div>
 <div class="d-none d-sm-block">
-
-    {% include 'footer.html' %}
+{% include 'footer.html' %}
 </div>
+
+
 {% endblock %}
