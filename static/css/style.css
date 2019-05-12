@@ -387,5 +387,16 @@ background-color: orange;
 }
 
 
+/*****************RESET FORM ****************************************/
 
+.reset-btn {
+    background-color: black;
+}
 
+.reset-text {
+    font-size:20px;
+}
+
+.control-label {
+    font-size:18px;
+}
