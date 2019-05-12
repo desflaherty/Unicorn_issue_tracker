@@ -111,9 +111,9 @@ def upvote_feature(request):
     cart = request.session.get('cart', {})
     upvote_list = []
 
-    for id  in cart.items():
-       
-        upvote_list.append(id)
+    for id,quantity in cart.items():
+       feature = get_object_or_404(Features, pk=id)
+       upvote_list.append(id)
 
     for id in upvote_list:
         feature_name = get_object_or_404(
