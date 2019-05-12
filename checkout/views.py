@@ -34,12 +34,20 @@ def checkout(request):
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-
+            
+            """
             if customer.paid:
                 messages.success(request, "You have successfully paid")
                 return redirect(reverse('upvote_feature'))
             else:
                 messages.error(request, "Unable to take payment")
+                """
+            if customer.paid:
+                messages.error(request, "You have successfully paid")
+                request.session['cart'] = {}
+                return redirect(reverse('upvote_feature'))
+            else:
+                messages.error(request, "Unable to take payment")    
         else:
             messages.error(
                 request, "We were unable to take a payment with that card!")
