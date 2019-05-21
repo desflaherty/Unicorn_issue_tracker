@@ -100,29 +100,19 @@ def add_comment_bugs(request, id=id):
                                             
     
 @login_required
-def upvote_bug(request):
-    """Adds one upvote point to the bug  """
+def upvote_bug(request, id=id):
+    """Adds one upvote point to the ticket  """
+    bug = get_object_or_404(Bugs, id=id)
+    bug.upvotes += 1
+    bug.views -= 1
+    bug.save()
 
-    cart = request.session.get('cart', {})
-    upvote_list = []
-
-    for id,quantity in cart.items():
-       bug = get_object_or_404(Bugs, pk=id)
-       upvote_list.append(id)
-
-    for id in upvote_list:
-        bug_name = get_object_or_404(
-            Bugs, id=id)
-        try:
-            upvote = get_object_or_404(
-                UpvoteBug, user=request.user, upvoted_bug=bug_name)
-        except:
-            upvote = UpvoteBug()
-        upvote.user = request.user
-        upvote.upvoted_bug = bug_name
-        bug_name.upvotes += 1
-        bug_name.save()
-        upvote.save()
-    request.session['cart'] = {}
-    return redirect(reverse('index'))                                             
-                                               
+    try:
+        upvote = get_object_or_404(
+            UpvoteBug, upvoted_bug=bug, user=request.user)
+    except:
+        upvote = UpvoteBug()
+    upvote.upvoted_bug = bug
+    upvote.user = request.user
+    upvote.save()
+    return(redirect(bug_detail, id))

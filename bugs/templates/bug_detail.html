@@ -11,7 +11,7 @@
        
         
         {% if user.username == 'admin' %}
-        <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
+        <a href="{% url 'edit_bugs' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </a>
         {% endif %}
@@ -19,7 +19,7 @@
         {% if user.is_authenticated %}
         {% if items.id not in upvote_list %}
         
-        <form class='inline' method="post" action="">
+        <form class='inline' method="post" action="{% url 'upvote_bug' items.id %}">
             {% csrf_token %}
             <input type="hidden" name="quantity" value="1">
             <a class="btn btn-primary" href="{% url 'bugs' %}">Back</a>
@@ -38,7 +38,7 @@
         <br>
 
         <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
-        
+        <p class='inline upvotes text-shadow'><b>Upvotes:</b> {{items.upvotes}}</p><br>
 
         <br>
 
