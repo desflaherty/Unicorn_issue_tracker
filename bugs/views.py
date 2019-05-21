@@ -53,7 +53,7 @@ def add_edit_bug(request, id=None):
     return render(request, 'add_bug.html', {'add_edit': add_edit,
                                                'form': form})
                                                
-                                               
+
 def bug_detail(request, id):
     """Renders a view of an individual bug"""
 
@@ -68,7 +68,7 @@ def bug_detail(request, id):
         if item == user:
             upvoted = True
 
-    comments = Comments.objects.filter(feature_ticket=id).order_by('created_date')
+    comments = BugComments.objects.filter(bug_ticket=id).order_by('created_date')
     comments_number = comments.count()
     comment_form = CommentForm()
     bugs.views += 1
@@ -76,7 +76,7 @@ def bug_detail(request, id):
 
    
     return render(request, "bug_detail.html", {'upvoted': upvoted,
-                                                   'items': features,
+                                                   'items': bugs,
                                                    'comment_form': comment_form,
                                                    'comments': comments,
                                                    'comments_number':comments_number})                                          
