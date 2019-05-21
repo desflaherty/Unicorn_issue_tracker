@@ -22,7 +22,7 @@
 
 {% if user.is_authenticated %}
         <div class='center'>
-            <a class='btn btn-primary add-feature-btn' href=""><i class="fa fa-plus"></i> Add
+            <a class='btn btn-primary add-feature-btn' href="{% url 'add_bug' %}"><i class="fa fa-plus"></i> Add
             Bugs</a>
         </div>
         {% endif %}
