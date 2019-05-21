@@ -107,8 +107,16 @@ border-bottom: 0;
   
 }
 
+
+/************** NAVBAR STYLING************************/
+
 .navbar-collapse {
     text-align: center;
+}
+
+.navbar-default {
+    background-color: #b97e2b;
+    border-color: #b97e2b;
 }
 
 /**************LOGIN FORM STYLING************************/

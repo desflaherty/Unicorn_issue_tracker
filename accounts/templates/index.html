@@ -1,13 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-2 col-lg-offset-3">
+    
+        <div class="col-sm-12 col-md-9 col-md-offset-1 col-lg-offset-3">
             <p class="index-header">Unicorn Attractor Bug Tracker</p><br>
              {% if user.is_authenticated %}
              <p class="index-text">Welcome {{ user.username }} you can now add new features that you would like to be developed!</p>
               {% else %}
-             <p class="index-text">Browse bugs or register to add new features to the application!!</p>
+             <p class="index-text">Browse and record bugs or register to add new features to the application!!</p>
              {% endif %}
         </div>
         
@@ -19,8 +19,8 @@
                 <a class="btn btn-success index-btn" href="{% url 'register' %}">Register</a>
                 {% endif %}
             </div>
-         </div>
-        </div>
+        
+ </div>
         
 {% include 'footer.html' %}
 {% endblock %}
