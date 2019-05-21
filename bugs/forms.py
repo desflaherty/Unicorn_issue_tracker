@@ -13,5 +13,5 @@ class CommentForm(forms.ModelForm):
         attrs={'rows': '4', 'cols': '5'}))
 
     class Meta:
-        model = Comments
+        model = BugComments
         fields = ['comment']

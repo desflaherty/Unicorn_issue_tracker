@@ -2,7 +2,7 @@ from django.shortcuts import render,reverse,redirect, get_object_or_404
 from .forms import BugsForm
 from .forms import CommentForm
 from .models import BugComments
-from .models import Bugs,UpvoteBugs
+from .models import Bugs,UpvoteBug
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -54,7 +54,7 @@ def add_edit_bug(request, id=None):
                                                'form': form})
                                                
                                                
-     def bug_detail(request, id):
+def bug_detail(request, id):
     """Renders a view of an individual bug"""
 
     bugs = get_object_or_404(Bugs, id=id)
@@ -81,7 +81,7 @@ def add_edit_bug(request, id=None):
                                                    'comments': comments,
                                                    'comments_number':comments_number})                                          
                                                
-   @login_required
+@login_required
 def add_comment_bugs(request, id=id):
     """Saves a posted bug  """
 
@@ -99,7 +99,7 @@ def add_comment_bugs(request, id=id):
     return redirect(bug_detail, id)
                                             
     
-    @login_required
+@login_required
 def upvote_bug(request):
     """Adds one upvote point to the bug  """
 

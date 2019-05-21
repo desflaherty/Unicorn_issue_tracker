@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block content%}
+
+<div class="container center">
+       
+    
+    <div class='inline '>
+        <h1 class='feature-details-h'>{{items.name}}</h1>
+       
+        
+        {% if user.username == 'admin' %}
+        <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
+            Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        {% if items.id not in upvote_list %}
+        
+        <form class='inline' method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="quantity" value="1">
+            <a class="btn btn-primary" href="{% url 'bugs' %}">Back</a>
+            <button type='submit' class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></button>
+         </form>
+
+       
+        {% endif %}
+
+        {% else %}
+        <div class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+        {% endif %}
+        
+        
+
+        <br>
+
+        <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
+        
+
+        <br>
+
+        <p class=' inline feature-text-b'>Status&#58;</p>
+                {% if items.status == 'ToDo' %}
+                <p class='inline status-todo'>{{ items.status }}</p>
+                {% elif items.status == 'Doing' %}
+                <p class='inline status-doing'>{{ items.status }}</p>
+                {% elif items.status == 'Done' %}
+                <p class='inline status-done'>{{ items.status }}</p>
+                {% endif %}
+
+    </div>
+
+    <div class='center comments'>
+        <div class="feature-description inline">
+   <div>
+                <p class="creator-and-date inline"><b>{{items.username}}</b> {{items.created_date}}</p>
+               
+                <p class='description inline'>{{items.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="comments ">
+
+        <div class='margin-b-30'>
+            <h4 class='center'>Comments: ( {{ comments_number }} ) </h4>
+            <div class="short-line-white center"></div>
+        </div>
+
+        {% for comment in comments %}
+        <div class="user-comment inline">
+
+            <div>
+                <p class="creator-and-date inline">
+                    <b>{{comment.username}}</b> {{comment.created_date}}
+                </p>
+
+                
+                <p class='description inline'>{{comment.comment}}</p>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+ <div>
+            <form method="post" class="center" action="{% url 'add_comment_bugs' items.id %}">
+                {% csrf_token %}
+
+                <div id="div_id_comment" class="form-group  ">
+                    <label for="id_comment" class="text-shadow control-label required-field ">
+                        <h6>Add comment:</h6>
+                    </label>
+                    <div class="">
+                        <textarea name="comment" cols="5" rows="4" class=" form-control" required="" id="id_comment"></textarea>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                <button class="btn btn-primary inline" type="submit">Post</button>
+                {% else %}
+                <div class="btn btn-primary inline">Post</div>
+                {% endif %}
+            </form>
+
+        </div>
+
+      
+</div>
+</div>
+<div class="block"></div>
+{% include 'footer.html' %}
+{% endblock %}}

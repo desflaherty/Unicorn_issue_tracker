@@ -54,7 +54,7 @@
                
                 <p>{{bug.description }}</p>
                 
-                <form method='get' class='inline' action="">
+                <form method='get' class='inline' action="{% url 'bug_detail' feature.id %}">
                         <div class=''>
                             <button type='submit' class=' btn btn-primary inline'>View Bug</button>
                         </div>
