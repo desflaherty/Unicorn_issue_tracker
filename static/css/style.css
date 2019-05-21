@@ -114,10 +114,20 @@ border-bottom: 0;
     text-align: center;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
+    background-color: #b97e2b;
+    border-color: #b97e2b;
+}
+
+
 .navbar-default {
     background-color: #b97e2b;
     border-color: #b97e2b;
 }
+
+
+
+
 
 /**************LOGIN FORM STYLING************************/
 

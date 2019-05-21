@@ -17,11 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts import urls as urls_accounts
 from features import urls as urls_features
+from bugs import urls as urls_bugs
 from features.views import all_features
+from bugs.views import all_bugs
 from cart import urls as urls_cart
 from search import urls as urls_search
 from django.views import static
-from .settings import MEDIA_ROOT
+from .settings import MEDIA_ROOT 
 from home.views import index
 from checkout import urls as urls_checkout
 
@@ -30,6 +32,7 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^features/', include(urls_features)),
+    url(r'^bugs/', include(urls_bugs)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
