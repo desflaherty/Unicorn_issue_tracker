@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-class Features(models.Model):
+class Bugs(models.Model):
     ToDo = 'To Do'
     Doing = 'Doing'
     Done = 'Done'
@@ -25,3 +25,9 @@ class Features(models.Model):
 
     def __str__(self):
         return self.name
+        
+        
+
+    
+    
+    
