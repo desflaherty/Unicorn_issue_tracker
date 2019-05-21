@@ -26,7 +26,23 @@ class Bugs(models.Model):
     def __str__(self):
         return self.name
         
-        
+class UpvoteBug(models.Model):
+    upvoted_bug = models.ForeignKey(Bugs, default=None)
+    user = models.ForeignKey(User, default=None)
+
+    def __str__(self):
+        return str(self.user)
+
+
+class BugComments(models.Model):
+    bug_ticket = models.ForeignKey(Bugs, null=True)
+    username = models.ForeignKey(User, null=None)
+    comment = models.TextField(blank=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.comment
 
     
     
