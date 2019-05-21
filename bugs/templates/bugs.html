@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+        <div class="form-display left">
+            <form action="{% url 'search' %}" method="get">
+                <input class="input" type="text" name="q">
+                <button class="btn-search" type ="submit">Search</button>
+                <a href="features.html"><button class="btn-search">Reset</button></a>
+            </form>
+        </div>
+        
+          <p class="feature-heading center">Bugs</p>
+        
+       
+<div class="feature-description center">
+    <p class="feature-text-b">We spend 50% of our time developing the most upvoted Features.</p>
+    <p class="feature-text-b">However add your bugs here and we will fix them for free!!
+    </p>
+ </div>        
+
+{% if user.is_authenticated %}
+        <div class='center'>
+            <a class='btn btn-primary add-feature-btn' href=""><i class="fa fa-plus"></i> Add
+            Bugs</a>
+        </div>
+        {% endif %}
+
+
+<div class="row row-flex">
+    {% for bug in bugs %}
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-4 display panel panel-default center">
+            <div class="panel-body">
+                 {% if bug.status == 'ToDo' %}
+                <p class='red circle'></p>
+                {% elif bug.status == 'Doing' %}
+                <p class='orange circle'></p>
+                {% elif bug.status == 'Done' %}
+                 <p class='green circle'></p>
+                  {% endif %}
+                <h4 class="feature-text-b">{{bug.name }}</h4>
+               
+               <p class=' inline feature-text-b'>Status&#58;</p>
+                {% if bug.status == 'ToDo' %}
+                <p class='inline status-todo'>{{ bug.status }}</p>
+                {% elif bug.status == 'Doing' %}
+                <p class='inline status-doing'>{{ bug.status }}</p>
+                {% elif bug.status == 'Done' %}
+                <p class='inline status-done'>{{ bug.status }}</p>
+                {% endif %}
+               
+               <p>Issued&#58;{{ bug.created_date }}</p>
+               
+                <p>{{bug.description }}</p>
+                
+                <form method='get' class='inline' action="">
+                        <div class=''>
+                            <button type='submit' class=' btn btn-primary inline'>View Bug</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+      
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+
+{% include 'footer.html' %}
+{% endblock %}
