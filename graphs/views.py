@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def featuresgraphs(request):
+    """A view that displays the fetures graphs"""
+    return render(request, "features-graphs.html")
