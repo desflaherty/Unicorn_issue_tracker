@@ -111,8 +111,11 @@ def upvote_bug(request, id=id):
         upvote = get_object_or_404(
             UpvoteBug, upvoted_bug=bug, user=request.user)
     except:
-        upvote = UpvoteBug()
+       upvote = UpvoteBug()
     upvote.upvoted_bug = bug
     upvote.user = request.user
     upvote.save()
     return(redirect(bug_detail, id))
+    
+    
+    

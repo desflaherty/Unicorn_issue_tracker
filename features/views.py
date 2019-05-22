@@ -129,4 +129,6 @@ def upvote_feature(request):
         feature_name.save()
         upvote.save()
     request.session['cart'] = {}
-    return redirect(reverse('index'))                                               
+    return redirect(reverse('index'))               
+    
+    
