@@ -9,29 +9,23 @@
     <div class='inline '>
         <h1 class='feature-details-h'>{{items.name}}</h1>
        
-        
+        {% if user != None %}
         {% if user.username == 'admin' %}
-        <a href="{% url 'edit_bugs' items.id %}" class='btn btn-primary'>
+        <a href="{% url 'edit_bug' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </a>
         {% endif %}
 
-        {% if user.is_authenticated %}
-        {% if items.id not in upvote_list %}
+    {% if upvoted %}
+    <div class='btn btn-secondary'>Upvoted <i class="fa fa-star" aria-hidden="true"></i></div>
+    {% else %}
+    <a class='btn btn-primary' href="{% url 'upvote_bug' items.id %}">Upvote <i class="fa fa-star" aria-hidden="true"></i></a>
+    {% endif %}
+    {% else %}
+    <div class='btn btn-secondary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+    {% endif %}
+
         
-        <form class='inline' method="post" action="{% url 'upvote_bug' items.id %}">
-            {% csrf_token %}
-            <input type="hidden" name="quantity" value="1">
-            <a class="btn btn-primary" href="{% url 'bugs' %}">Back</a>
-            <button type='submit' class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></button>
-         </form>
-
-       
-        {% endif %}
-
-        {% else %}
-        <div class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
-        {% endif %}
         
         
 
