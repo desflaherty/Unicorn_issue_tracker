@@ -26,7 +26,6 @@ from django.views import static
 from .settings import MEDIA_ROOT 
 from home.views import index
 from checkout import urls as urls_checkout
-from graphs import urls as urls_featuresgraphs
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -37,6 +36,5 @@ urlpatterns = [
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
-    url(r'^featuresgraphs/', include(urls_featuresgraphs)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

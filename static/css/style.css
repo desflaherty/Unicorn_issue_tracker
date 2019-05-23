@@ -149,10 +149,20 @@ border-bottom: 0;
 .index-btn {
     margin-top: 100px;
     border-radius: 4px;
-    background-color:#2e7716;
-    border-color:#2e7716;
+    background-color:#b97e2b;
+    border-color:#b97e2b;
     margin-left: 5px;
 }
+
+
+.index-btn:hover, .index-btn:focus, .index-btn:active, .index-btn.active, .open>.dropdown-toggle.index-btn ,.index-btn:active:focus{
+    margin-top: 100px;
+    border-radius: 4px;
+    background-color:#b97e2b;
+    border-color:#b97e2b;
+    margin-left: 5px;
+}
+
 
 .register-container {
     height: 100%;
@@ -418,3 +428,6 @@ background-color: orange;
 .control-label {
     font-size:18px;
 }
+
+
+
