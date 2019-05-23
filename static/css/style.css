@@ -130,8 +130,9 @@ border-bottom: 0;
     border-color: #b97e2b;
 }
 
-
-
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #b97e2b;
+}
 
 
 /**************LOGIN FORM STYLING************************/
@@ -216,7 +217,7 @@ footer a {
 footer {
     position: absolute;
     background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
-    height: 130px;
+    height: 60px;
     width: 100%;
     margin-top: 20px;
     bottom: 0;
