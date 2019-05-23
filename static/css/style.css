@@ -108,6 +108,11 @@ border-bottom: 0;
 }
 
 
+
+
+
+
+
 /************** NAVBAR STYLING************************/
 
 .navbar-collapse {
@@ -135,6 +140,10 @@ border-bottom: 0;
  font-size: 24px;   
 }
 
+.reset-txt {
+    padding: 10px;
+}
+
 /**************INDEX FORM STYLING************************/
 
 .index-header {
@@ -146,12 +155,19 @@ border-bottom: 0;
     margin-top: 20px;
 }
 
-.index-btn {
+.index-btn-sp {
     margin-top: 100px;
+     border-radius: 4px;
+     margin-left: 5px;
+}
+
+
+.index-btn {
     border-radius: 4px;
     background-color:#b97e2b;
     border-color:#b97e2b;
     margin-left: 5px;
+    
 }
 
 
@@ -161,6 +177,7 @@ border-bottom: 0;
     background-color:#b97e2b;
     border-color:#b97e2b;
     margin-left: 5px;
+     
 }
 
 
@@ -197,9 +214,9 @@ footer a {
 }
 
 footer {
-    margin-top: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    margin-top: 60px;
+    padding-top: 60px;
+    padding-bottom: 30px;
     border-top:0;
     color: #A9A9A9;
 }

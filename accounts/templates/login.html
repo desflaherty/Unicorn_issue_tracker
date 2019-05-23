@@ -9,7 +9,7 @@
             <legend class="legend">Login</legend>
             {% csrf_token %}
             {{ user_form | as_bootstrap }}
-             <p>If you have forgotten your password, <a href="{% url 'password_reset' %}">Reset it here</a></p>
+             <p class="reset-txt">If you have forgotten your password, <a href="{% url 'password_reset' %}">Reset it here</a></p>
             <button type="submit" class="btn btn-primary">Login</button>
         </fieldset>
     </form>
