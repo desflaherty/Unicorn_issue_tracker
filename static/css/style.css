@@ -460,6 +460,15 @@ background-color: orange;
 }
 
 
+@media screen and (max-width: 420px) {
+    .footer-text {
+       font-size: 14px;
+    }
+}
 
-
+@media screen and (max-width: 320px) {
+    .footer-text {
+       font-size: 12px;
+    }
+}
 
