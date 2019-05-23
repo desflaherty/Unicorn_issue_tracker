@@ -214,11 +214,13 @@ footer a {
 }
 
 footer {
-    margin-top: 60px;
-    padding-top: 60px;
-    padding-bottom: 30px;
-    border-top:0;
-    color: #A9A9A9;
+    position: absolute;
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,1));
+    height: 130px;
+    width: 100%;
+    margin-top: 20px;
+    bottom: 0;
+    text-align: center;
 }
 
 .footer-block {
@@ -283,6 +285,7 @@ footer {
 /* search input box bg colour */
 .input {
     background-color:whitesmoke;
+    color:#000;
 }
 
 .panel {
@@ -445,6 +448,17 @@ background-color: orange;
 .control-label {
     font-size:18px;
 }
+
+
+/*****************MEDIA QUERIES****************************************/
+
+@media screen and (max-width: 1200px) {
+    .index-text {
+        font-size:18px;
+    }
+}
+
+
 
 
 
