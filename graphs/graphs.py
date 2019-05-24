@@ -19,7 +19,7 @@ custom_style = Style(
 
 def chart_total(feature_type):
     """Renders graphs by a feature status.  """
-    status = feature_type.objects.filter(status='To Do').count()
+    status = feature_type.objects.filter(status='ToDo').count()
     status1 = feature_type.objects.filter(status='Doing').count()
     status2 = feature_type.objects.filter(status='Done').count()
     p_chart = pygal.Pie(print_values=True,
@@ -29,7 +29,7 @@ def chart_total(feature_type):
                         style=custom_style,
                         inner_radius=.5)
 
-    p_chart.add('To Do', status)
+    p_chart.add('ToDo', status)
     p_chart.add('Doing', status1)
     p_chart.add('Done', status2)
     return p_chart.render()
