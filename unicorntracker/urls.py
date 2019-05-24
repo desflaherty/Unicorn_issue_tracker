@@ -23,6 +23,7 @@ from bugs.views import all_bugs
 from cart import urls as urls_cart
 from search import urls as urls_search
 from search2 import urls as urls_search2
+from graphs import urls as urls_graphs
 from django.views import static
 from .settings import MEDIA_ROOT 
 from home.views import index
@@ -38,5 +39,6 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),
     url(r'^search2/', include(urls_search2)),
+    url(r'^graphs/', include(urls_graphs)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
