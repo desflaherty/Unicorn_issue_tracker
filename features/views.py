@@ -103,11 +103,9 @@ def add_edit_feature(request, id=None):
     return render(request, 'add_feature.html', {'add_edit': add_edit,
                                                'form': form})
                                                
-                                               
+"""                                              
 @login_required
 def upvote_feature(request):
-    """Adds one upvote point to the feature  """
-
     cart = request.session.get('cart', {})
     upvote_list = []
 
@@ -131,4 +129,22 @@ def upvote_feature(request):
     request.session['cart'] = {}
     return redirect(reverse('index'))               
     
+"""
+@login_required
+def upvote_feature(request, id=id):
+    """Adds one upvote point to the ticket  """
+    feature = get_object_or_404(Features, id=id)
+    feature.upvotes += 1
+    feature.views -= 1
+    feature.save()
+
+    try:
+        upvote = get_object_or_404(
+            UpvoteFeature, upvoted_feature=feature, user=request.user)
+    except:
+       upvote = UpvoteFeature()
+    upvote.upvoted_feature = feature
+    upvote.user = request.user
+    upvote.save()
+    return(redirect(feature_detail, id))
     

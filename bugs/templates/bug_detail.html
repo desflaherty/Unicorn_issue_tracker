@@ -17,12 +17,12 @@
         {% endif %}
 
     {% if upvoted %}
-    <div class='btn btn-secondary'>Upvoted <i class="fa fa-star" aria-hidden="true"></i></div>
+    <div class='btn btn-secondary'>Upvote Success!<i class="fa fa-star" aria-hidden="true"></i></div>
     {% else %}
     <a class='btn btn-primary' href="{% url 'upvote_bug' items.id %}">Upvote <i class="fa fa-star" aria-hidden="true"></i></a>
     {% endif %}
     {% else %}
-    <div class='btn btn-secondary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+    <div class='btn btn-secondary'>Upvote<i class="fa fa-star" aria-hidden="true"></i></div>
     {% endif %}
 
         

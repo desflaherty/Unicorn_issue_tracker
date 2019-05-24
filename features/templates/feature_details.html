@@ -23,23 +23,32 @@
             {% csrf_token %}
             <input type="hidden" name="quantity" value="1">
             <a class="btn btn-primary" href="{% url 'features' %}">Back</a>
-            <button type='submit' class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></button>
+            <button type='submit' class='btn btn-primary'>Add to Cart <i class="fa fa-star" aria-hidden="true"></i></button>
+          
          </form>
-
-         
-
-       
+  
         {% endif %}
 
         {% else %}
-        <div class='btn btn-primary'>Upvote <i class="fa fa-star" aria-hidden="true"></i></div>
+        <div class='btn btn-primary'>Upvote<i class="fa fa-star" aria-hidden="true"></i></div>
         {% endif %}
+        
+        
+    {% if upvoted %}
+    <div class='btn btn-secondary'>Upvote Success!<i class="fa fa-star" aria-hidden="true"></i></div>
+    {% else %}
+    <a class='btn btn-primary' href="{% url 'upvote_feature' items.id %}">Upvote <i class="fa fa-star" aria-hidden="true"></i></a>
+    {% endif %}
+  
+        
+        
         
         
 
         <br>
 
         <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
+        <p class='inline upvotes text-shadow'><b>Upvotes:</b> {{items.upvotes}}</p><br>
         
 
         <br>
