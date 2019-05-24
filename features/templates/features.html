@@ -2,7 +2,8 @@
 
 {% block content %}
 <div class="container">
-
+<div class="page-container">
+<div class="content-wrap">
         <div class="form-display left">
             <form action="{% url 'search' %}" method="get">
                 <input class="input" type="text" name="q">
@@ -67,8 +68,7 @@
 </div>
 
 
-
-
-
 {% include 'footer.html' %}
+</div>
+</div>
 {% endblock %}
