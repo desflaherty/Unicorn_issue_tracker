@@ -31,7 +31,7 @@
 
 <div class="row row-flex">
     {% for feature in features %}
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-4 display panel panel-default center">
+        <div class="col-xs-12 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-default center">
             <div class="panel-body">
                  {% if feature.status == 'ToDo' %}
                 <p class='red circle'></p>
@@ -60,6 +60,7 @@
                             <button type='submit' class=' btn btn-primary inline'>View Feature </button>
                         </div>
                     </form>
+                    
             </div>
         </div>
       

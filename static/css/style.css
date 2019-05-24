@@ -57,6 +57,9 @@ caption p {
     padding: 0 10px;
 }
 
+.panel-body {
+    padding: 15px;
+}
 
 
 .alert-success {
@@ -306,7 +309,7 @@ footer {
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
     color: black;
-   /* margin: 0 7px 14px 7px;*/
+    margin: 0 7px 14px 7px;
     position: relative;
     background-color: rgba(255,255,255,.7);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -489,6 +492,12 @@ background-color: orange;
 @media screen and (max-width: 320px) {
     .footer-text {
        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .input {
+       width: 50%;
     }
 }
 
