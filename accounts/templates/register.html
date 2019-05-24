@@ -2,6 +2,8 @@
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container">
+    <div class="page-container">
+<div class="content-wrap">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
     <form method="post" action="{% url 'register' %}" class="accountform">
         <fieldset class="form-group">
@@ -15,14 +17,10 @@
       </div>
 </div>
 
-<div class="footer-block"></div>
-
-    <footer class="container-fluid center">
-    <div>
-        <p class="footer-text">&copy;2019 Unicorn Attractor | Web design by Des Flaherty</p>
-    </div>
-
-</footer>
+{% include 'footer.html' %}
+</div>
+</div>
+    
    
 
 {% endblock %}
