@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block content %}
 
 
@@ -10,18 +10,17 @@
 <section id="features" class="bg-white">
 
   <div class="container">
-
     <div class="row">
 
       <div class="col-lg-8 mx-auto">
 
         <h2>Features</h2>
 
-        <div class="col"><img class="float-right" style="height: 80px" src="https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lighthouseconferencing.com%2Fwp-content%2Fuploads%2F2015%2F08%2FAdditional-features-Document-comparison-and-questionnaires.png&f=1" alt=""></div>
+        <div class="col"><img class="float-right" style="height: 80px" src="{% static "images/features.png" %}" alt="feature_image"></div>
 
-        <p class="lead text-justify">Take a quick look at this graph that is showing total
+        <p class="lead text-justify">The chart below shows the Featues currently being worked on
 
-          features categorized by their status (charts are updated live):
+         they are categorized by their status (the status is updated live):
 
         </p>
 
@@ -45,13 +44,13 @@
 
         <h2>Bugs</h2>
 
-        <div class="col"><img class="float-right" style="height: 80px" src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F6%2FAnt-PNG-Picture.png&f=1" alt=""></div>
+        <div class="col"><img class="float-right" style="height: 80px" src="{% static "images/bug.png" %}" alt="bug_image"></div>
 
-        <p class="lead text-justify">Also here you can find graph of total bugs that were
+        <p class="lead text-justify">The graph below shows the bugs that were
 
-          posted and categorized by their status on this site. You can always
+          posted and are categorized by their status on this site. You can always
 
-          come back here to check how project is progressing </p>
+          come back here to check how the app development is progressing... </p>
 
         {{ BugsPieChart|safe}}
 
@@ -63,5 +62,8 @@
 
 </section>
 
+ <p class="footer-text center">&copy;2019 Unicorn Attractor | Web design by Des Flaherty</p>
+</div>
+</div>
 {% endblock %}
 
