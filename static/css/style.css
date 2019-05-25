@@ -522,9 +522,15 @@ background-color: orange;
     }
 }
 
-
-@media (min-width: 768px){
+@media (max-width: 768px){
 .navbar-nav>li>a {
     font-size:12px;
     }
 }
+
+@media screen and (max-width: 584px) {
+    .feature-text-b {
+   font-size:12px;
+    }
+}
+
