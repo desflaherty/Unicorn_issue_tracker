@@ -68,8 +68,8 @@ caption p {
 
 .footer-text {
     color: #fff;
-    margin-bottom:10px;
-    margin-top: 10px;
+    margin-bottom:15px;
+    
 }
 
 /**************REGISTRATION FORM STYLING************************/
@@ -467,6 +467,12 @@ background-color: orange;
     font-size:18px;
 }
 
+/*****************GRAPHS FORM****************************************/
+
+.chart {
+    margin: 0 auto -50px;
+    width: 500px;
+}
 
 /*****************MEDIA QUERIES****************************************/
 
@@ -502,10 +508,16 @@ background-color: orange;
     }
 }
 
-.chart {
-    margin: 0 auto -50px;
-    width: 500px;
+
+@media screen and (min-width: 768px) {
+    .panel {
+    margin: 0 7px 14px 30px;
+    }
 }
 
-
+@media screen and (min-width: 1024px) {
+    .panel {
+    margin: 0 7px 14px 50px;
+    }
+}
 
