@@ -1,69 +1,65 @@
-{% extends 'base.html' %}
-{% load static from staticfiles %}
-{% load bootstrap_tags %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content %}
 <div class="container center">
-<div class="page-container">
-<div class="content-wrap">
+    <div class="page-container">
+        <div class="content-wrap">
 
-    {% for item in cart_items %}
-    
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-display">
-       <div class="panel-body">
-        {% if item.feature.status == 'ToDo' %}
-                <p class='red circle'></p>
-                {% elif item.feature.status == 'Doing' %}
-                <p class='orange circle'></p>
-                {% elif item.feature.status == 'Done' %}
-                 <p class='green circle'></p>
-                  {% endif %}
-        
-        
-        <div class="caption">
-            <h3>{{ item.feature.name }}</h3>
-            <p class=' inline feature-text-b'>Status&#58;</p>
-                {% if item.feature.status == 'ToDo' %}
-                <p class='inline status-todo'>{{ item.feature.status }}</p>
-                {% elif item.feature.status == 'Doing' %}
-                <p class='inline status-doing'>{{ item.feature.status }}</p>
-                {% elif item.feature.status == 'Done' %}
-                <p class='inline status-done'>{{ item.feature.status }}</p>
-                {% endif %}
-               
-               <p>Issued&#58;{{ item.feature.created_date }}</p>
-            <p class="feature-description">{{ item.feature.description }}</p>
-           
-           
-            
-            <form method='get' class='inline' action="{% url 'feature_detail' item.feature.id %}">
-                        <div class=''>
-                            <button type='submit' class=' btn btn-primary inline'>View Feature </button>
-                        </div>
-                    </form>
-            
-            <form id="form1" class='inline' method="post" action="{% url 'adjust_cart' item.id %}">
-                        {% csrf_token %}
-                        <input name='quantity' type="hidden" value="0">
-                        <button form="form1" type="submit" class="btn btn-danger red inline">
+            {% for item in cart_items %}
+
+            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 col-lg-3 display panel panel-display">
+                <div class="panel-body">
+                    {% if item.feature.status == 'ToDo' %}
+                    <p class='red circle'></p>
+                    {% elif item.feature.status == 'Doing' %}
+                    <p class='orange circle'></p>
+                    {% elif item.feature.status == 'Done' %}
+                    <p class='green circle'></p>
+                    {% endif %}
+
+
+                    <div class="caption">
+                        <h3>{{ item.feature.name }}</h3>
+                        <p class=' inline feature-text-b'>Status&#58;</p>
+                        {% if item.feature.status == 'ToDo' %}
+                        <p class='inline status-todo'>{{ item.feature.status }}</p>
+                        {% elif item.feature.status == 'Doing' %}
+                        <p class='inline status-doing'>{{ item.feature.status }}</p>
+                        {% elif item.feature.status == 'Done' %}
+                        <p class='inline status-done'>{{ item.feature.status }}</p>
+                        {% endif %}
+
+                        <p>Issued&#58;{{ item.feature.created_date }}</p>
+                        <p class="feature-description">{{ item.feature.description }}</p>
+
+
+
+                        <form method='get' class='inline' action="{% url 'feature_detail' item.feature.id %}">
+                            <div class=''>
+                                <button type='submit' class=' btn btn-primary inline'>View Feature </button>
+                            </div>
+                        </form>
+
+                        <form id="form1" class='inline' method="post" action="{% url 'adjust_cart' item.id %}">
+                            {% csrf_token %}
+                            <input name='quantity' type="hidden" value="0">
+                            <button form="form1" type="submit" class="btn btn-danger red inline">
                             Remove <i class="fa fa-trash" aria-hidden="true"></i>
                         </button>
-                    </form>
-            
-            
-            </div>
-        </div>
-    </div>
-    {% endfor %}
+                        </form>
 
-<div class="row">
-    
-    
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="row">
+
+
 
                 <div class="card-header  center">
 
                 </div>
-                    <div class="card-body center">
+                <div class="card-body center">
                     <table class='summary-table inline'>
 
                         <tr class='table-margin'>
@@ -78,21 +74,21 @@
                         </tr>
                         {% endfor %}
 
-                    </table>            
-                
-                
-                
-                
-    
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-     <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+                    </table>
 
 
-</div>
-{% include 'footer.html' %}
-</div>
-</div>
 
 
-{% endblock %}
+
+                    <p>Total</p>
+                    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+                    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+
+
+                </div>
+                {% include 'footer.html' %}
+            </div>
+        </div>
+
+
+        {% endblock %}

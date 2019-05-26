@@ -1,48 +1,46 @@
-
 {% extends 'base.html' %} {% load bootstrap_tags %} {% block content%}
 <div class="container">
-<div class="page-container">
-<div class="content-wrap">
-    <div class="center">
-    <div class="row">
-    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
+    <div class="page-container">
+        <div class="content-wrap">
+            <div class="center">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
 
-        {% if add_edit %}
-        <h1>Edit Feature</h1>
-        {% else %}
-        <h1>Add Feature</h1>
-        {% endif %}
+                        {% if add_edit %}
+                        <h1>Edit Feature</h1>
+                        {% else %}
+                        <h1>Add Feature</h1>
+                        {% endif %}
 
-        <form enctype="multipart/form-data" method="post">
-            {% csrf_token %} {{ form | as_bootstrap}}
+                        <form enctype="multipart/form-data" method="post">
+                            {% csrf_token %} {{ form | as_bootstrap}}
 
-            <div id="div_id_status" class="form-group">
+                            <div id="div_id_status" class="form-group">
 
-                <label for="id_status" class="control-label required-field ">
+                                <label for="id_status" class="control-label required-field ">
                     Status
                 </label>
-                <div>
-                    <select name="status" class="form-control" id="id_status">
+                                <div>
+                                    <select name="status" class="form-control" id="id_status">
                         <option value="ToDo" selected>To Do</option>
                         <option value="Doing">Doing</option>
                         <option value="Done">Done</option>
                     </select>
+                                </div>
+                            </div>
+
+
+                            {% if add_edit %}
+                            <button class="btn btn-primary" type='submit'>Edit <i class="fa fa-edit" aria-hidden="true"></i></button> {% else %}
+                            <button class="btn btn-primary" type='submit'>Add <i class="fa fa-plus" aria-hidden="true"></i></button> {% endif %}
+
+                        </form>
+                    </div>
                 </div>
             </div>
+        </div>
 
-
-            {% if add_edit %}
-            <button class="btn btn-primary" type='submit'>Edit <i class="fa fa-edit" aria-hidden="true"></i></button> {% else %}
-            <button class="btn btn-primary" type='submit'>Add <i class="fa fa-plus" aria-hidden="true"></i></button> {% endif %}
-
-        </form>
-</div>
-</div>
-</div>
-</div>
-
-{% include 'footer.html' %}
-</div>
+        {% include 'footer.html' %}
+    </div>
 </div>
 {% endblock %}
-

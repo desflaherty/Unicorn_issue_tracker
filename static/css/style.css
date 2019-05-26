@@ -1,9 +1,9 @@
-
 html {
     height: 100%;
     padding: 0;
     margin: 0;
 }
+
 body {
     background-image: url("../images/office8.jpg");
     background-position: top;
@@ -63,51 +63,53 @@ caption p {
 
 
 .alert-success {
-  background-color:#2e7716
+    background-color: #2e7716
 }
 
 .footer-text {
     color: #fff;
-    margin-bottom:15px;
-    
+    margin-bottom: 15px;
+
 }
 
 /**************REGISTRATION FORM STYLING************************/
 
 .accountform {
-    text-align:center;
-     font-size:16px;
+    text-align: center;
+    font-size: 16px;
 }
 
 .help-block {
-color:#FFF;
+    color: #FFF;
 }
 
 .sign-text {
- font-size: 1.25em;
+    font-size: 1.25em;
 }
 
 .legend {
-color:#FFF; 
-font-size: 40px;
-border-bottom: 0;
+    color: #FFF;
+    font-size: 40px;
+    border-bottom: 0;
 }
 
 .form-control {
-    width:80%;
-    display:inline-block;
+    width: 80%;
+    display: inline-block;
     border-radius: 4px;
 }
 
-.btn-primary, .btn-success, .btn-danger{
-    border-radius:4px;
+.btn-primary,
+.btn-success,
+.btn-danger {
+    border-radius: 4px;
 }
 
 .btn-success {
-  background-color:#2e7716;
-  border-color:#2e7716;
-  margin-bottom:10px;
-  
+    background-color: #2e7716;
+    border-color: #2e7716;
+    margin-bottom: 10px;
+
 }
 
 
@@ -123,7 +125,8 @@ border-bottom: 0;
     border-top: 0px;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus  {
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
     background-color: #b97e2b;
     border-color: #b97e2b;
 }
@@ -134,7 +137,8 @@ border-bottom: 0;
     border-color: #b97e2b;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
     background-color: #b97e2b;
 }
 
@@ -142,7 +146,7 @@ border-bottom: 0;
 /**************LOGIN FORM STYLING************************/
 
 .login-form {
- font-size: 24px;   
+    font-size: 24px;
 }
 
 .reset-txt {
@@ -152,38 +156,43 @@ border-bottom: 0;
 /**************INDEX FORM STYLING************************/
 
 .index-header {
-    font-size:50px;
+    font-size: 50px;
     margin-bottom: 80px;
 }
 
 .index-text {
-    font-size:20px;
+    font-size: 20px;
     margin-top: 20px;
 }
 
 .index-btn-sp {
     margin-top: 100px;
-     border-radius: 4px;
-     margin-left: 5px;
+    border-radius: 4px;
+    margin-left: 5px;
 }
 
 
 .index-btn {
     border-radius: 4px;
-    background-color:#b97e2b;
-    border-color:#b97e2b;
+    background-color: #b97e2b;
+    border-color: #b97e2b;
     margin-left: 5px;
-    
+
 }
 
 
-.index-btn:hover, .index-btn:focus, .index-btn:active, .index-btn.active, .open>.dropdown-toggle.index-btn ,.index-btn:active:focus{
+.index-btn:hover,
+.index-btn:focus,
+.index-btn:active,
+.index-btn.active,
+.open>.dropdown-toggle.index-btn,
+.index-btn:active:focus {
     margin-top: 100px;
     border-radius: 4px;
-    background-color:#b97e2b;
-    border-color:#b97e2b;
+    background-color: #b97e2b;
+    border-color: #b97e2b;
     margin-left: 5px;
-     
+
 }
 
 
@@ -221,11 +230,12 @@ footer a {
 
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-  text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    /* Footer height */
+    text-align: center;
 }
 
 
@@ -237,11 +247,13 @@ footer {
 }
 
 .page-container {
-  position: relative;
-  min-height: 100vh;
+    position: relative;
+    min-height: 100vh;
 }
+
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+    padding-bottom: 2.5rem;
+    /* Footer height */
 }
 
 
@@ -260,7 +272,7 @@ footer {
 }
 
 .profile-bg {
-    background-color: rgba(255,255,255,.7);
+    background-color: rgba(255, 255, 255, .7);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -271,12 +283,12 @@ footer {
 }
 
 .profile-header {
-    background-color:#b97e2b;
+    background-color: #b97e2b;
 }
 
 
 .profile-body {
-    background-color: rgba(255,255,255,.0); 
+    background-color: rgba(255, 255, 255, .0);
     color: #000;
     margin-top: 20px;
 }
@@ -293,8 +305,8 @@ footer {
 /**************FEATURE FORM STYLING************************/
 
 .btn-search {
-    background-color:#000;
-    color:#FFF;
+    background-color: #000;
+    color: #FFF;
 }
 
 .feature-heading {
@@ -303,9 +315,10 @@ footer {
 
 
 /* search input box bg colour */
+
 .input {
-    background-color:whitesmoke;
-    color:#000;
+    background-color: whitesmoke;
+    color: #000;
 }
 
 .panel {
@@ -314,8 +327,8 @@ footer {
     color: black;
     margin: 0 7px 14px 7px;
     position: relative;
-    background-color: rgba(255,255,255,.7);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 
@@ -355,22 +368,22 @@ footer {
 
 
 .circle {
-	border-radius: 50%;
-	width: 15px;
-	height: 15px; 
-	
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+
 }
 
 .red {
-background-color:#9e0e0e;    
+    background-color: #9e0e0e;
 }
 
 .orange {
-background-color: orange;    
+    background-color: orange;
 }
 
 .green {
-    background-color: green; 
+    background-color: green;
 }
 
 /**************FEATURE DETAILS FORM STYLING************************/
@@ -381,17 +394,18 @@ background-color: orange;
     text-align: center;
     padding: 10px;
     margin-top: 10px;
-    background-color: rgba(0,0,0,.3)
+    background-color: rgba(0, 0, 0, .3)
 }
 
 .user-comment {
     padding: 10px;
     display: grid;
     margin: 10px 0;
-    background-color: rgba(0,0,0,.3)
+    background-color: rgba(0, 0, 0, .3)
 }
 
-.description, .creator-and-date {
+.description,
+.creator-and-date {
     text-align: left;
 }
 
@@ -429,27 +443,28 @@ background-color: orange;
     width: 50%;
     margin: 0 auto;
 }
+
 .card {
-    background-color: rgba(255,255,255,.7); 
+    background-color: rgba(255, 255, 255, .7);
 }
 
 .card-body {
-    background-color: rgba(255,255,255,.0); 
+    background-color: rgba(255, 255, 255, .0);
     color: #FFF;
-    
+
 }
 
 .card-body-s {
-    background-color: rgba(255,255,255,.0); 
+    background-color: rgba(255, 255, 255, .0);
     color: #000;
-    
+
 }
 
 .summary-table {
     width: 170px;
 }
 
-.summary-table td{
+.summary-table td {
     padding: 0;
 }
 
@@ -458,11 +473,12 @@ background-color: orange;
 }
 
 .summary-text {
-    font-size:20px;
+    font-size: 20px;
     margin-top: 20px;
 }
 
-td, th {
+td,
+th {
     padding: 5px;
 }
 
@@ -474,11 +490,11 @@ td, th {
 }
 
 .reset-text {
-    font-size:30px;
+    font-size: 30px;
 }
 
 .control-label {
-    font-size:18px;
+    font-size: 18px;
 }
 
 /*****************GRAPHS FORM****************************************/
@@ -492,7 +508,7 @@ td, th {
 
 @media screen and (max-width: 1200px) {
     .index-text {
-        font-size:18px;
+        font-size: 18px;
     }
 }
 
@@ -501,51 +517,51 @@ td, th {
 
 @media screen and (max-width: 420px) {
     .footer-text {
-       font-size: 14px;
+        font-size: 14px;
     }
 }
 
 @media screen and (max-width: 375px) {
     .footer-text {
-       font-size: 12px;
+        font-size: 12px;
     }
 }
 
 
 @media screen and (max-width: 320px) {
     .footer-text {
-       font-size: 10px;
+        font-size: 10px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .input {
-       width: 50%;
+        width: 50%;
     }
 }
 
 
 @media screen and (min-width: 768px) {
     .panel {
-    margin: 0 7px 14px 30px;
+        margin: 0 7px 14px 30px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .panel {
-    margin: 0 7px 14px 50px;
+        margin: 0 7px 14px 50px;
     }
 }
 
-@media (max-width: 768px){
-.navbar-nav>li>a {
-    font-size:12px;
+@media (max-width: 768px) {
+    .navbar-nav>li>a {
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 584px) {
     .feature-text-b {
-   font-size:12px;
+        font-size: 12px;
     }
 }
 
@@ -553,14 +569,14 @@ td, th {
     .profile-container {
         width: 100%;
     }
-   
+
 }
 
 @media (max-width: 767px) {
     .profile-container {
         width: 100%;
     }
-   
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

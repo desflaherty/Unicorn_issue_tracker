@@ -1,8 +1,4 @@
-{% extends 'base.html' %}
-{% load bootstrap_tags %}
-{% load static from staticfiles %}
-
-{% block head_js %}
+{% extends 'base.html' %} {% load bootstrap_tags %} {% load static from staticfiles %} {% block head_js %}
 <script type='text/javascript' src='https://js.stripe.com/v2/'></script>
 <script type="text/javascript">
     //<![CDATA[
@@ -10,86 +6,84 @@
     //]]>
 </script>
 <script type='text/javascript' src="{% static 'js/stripe.js' %}"></script>
-{% endblock head_js %}
-
-{% block content %}
+{% endblock head_js %} {% block content %}
 
 <div class="container">
 
-        <h1 class="center">Payment Details</h1>
+    <h1 class="center">Payment Details</h1>
 
-        <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1 center">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1 center">
 
-            <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-                {% csrf_token %}
+        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+            {% csrf_token %}
 
 
-                    <div>
-                        {{payment_form | as_bootstrap}}
-                    </div>
+            <div>
+                {{payment_form | as_bootstrap}}
+            </div>
 
-                    
-                        <div class="card " style="max-width: 100%;">
 
-                            <div class="bg-dark center">
-                                <h4>Summary</h4>
-                            </div>
+            <div class="card " style="max-width: 100%;">
 
-                            <div class="card-body-s center">
+                <div class="bg-dark center">
+                    <h4>Summary</h4>
+                </div>
 
-                                <table class='summary-table inline'>
+                <div class="card-body-s center">
 
-                                    <tr class='bottom-border'>
-                                        <th>Feature Request</th>
-                                        <th>Price</th>
-                                    </tr>
+                    <table class='summary-table inline'>
 
-                                    {% for item in cart_items %}
-                                    <tr>
-                                        <td>{{ item.feature.name }}</td>
-                                        <td><i class="fa fa-eur" aria-hidden="true"></i>{{item.price}}</td>
-                                    </tr>
-                                    {% endfor %}
+                        <tr class='bottom-border'>
+                            <th>Feature Request</th>
+                            <th>Price</th>
+                        </tr>
 
-                                </table>
+                        {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.feature.name }}</td>
+                            <td><i class="fa fa-eur" aria-hidden="true"></i>{{item.price}}</td>
+                        </tr>
+                        {% endfor %}
 
-                                <hr class="mobile-hr">
+                    </table>
 
-                                <p class="card-text"><b>Total: </b>
-                                    <i class="fa fa-eur" aria-hidden="true"></i>{{total}}
-                                </p>
+                    <hr class="mobile-hr">
 
-                                <div style="color: red;" id="credit-card-errors" style="display:none">
-                                    <div class="alert-message block-message error" id="stripe-error-message"></div>
-                                </div>
+                    <p class="card-text"><b>Total: </b>
+                        <i class="fa fa-eur" aria-hidden="true"></i>{{total}}
+                    </p>
 
-                            </div>
-
-                            {% if total == 0 %}
-                            <div class="form-group bg-dark center">
-                                <button class="inline btn " role="button">Checkout</button>
-                            </div>
-                            {% else %}
-                            <div class="form-group bg-dark center">
-                                <button name='commit' type='submit' class="inline btn btn-success" id='submit_payment_btn'>Pay
-                                    Now <i class="fa fa-credit-card" aria-hidden="true"></i></button>
-                            </div>
-                            {% endif %}
-
-                        </div>
+                    <div style="color: red;" id="credit-card-errors" style="display:none">
+                        <div class="alert-message block-message error" id="stripe-error-message"></div>
                     </div>
 
                 </div>
 
-            </form>
+                {% if total == 0 %}
+                <div class="form-group bg-dark center">
+                    <button class="inline btn " role="button">Checkout</button>
+                </div>
+                {% else %}
+                <div class="form-group bg-dark center">
+                    <button name='commit' type='submit' class="inline btn btn-success" id='submit_payment_btn'>Pay
+                                    Now <i class="fa fa-credit-card" aria-hidden="true"></i></button>
+                </div>
+                {% endif %}
 
-        </div>
+            </div>
     </div>
-   
+
+</div>
+
+</form>
+
+</div>
+</div>
+
 </div>
 
 
- <p class="footer-text center">&copy;2019 Unicorn Attractor | Web design by Des Flaherty</p>
+<p class="footer-text center">&copy;2019 Unicorn Attractor | Web design by Des Flaherty</p>
 
 
 
