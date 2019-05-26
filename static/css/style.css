@@ -542,3 +542,22 @@ td, th {
     }
 }
 
+@media (max-width: 375px) {
+    .profile-container {
+        width: 100%;
+    }
+   
+}
+
+@media (max-width: 767px) {
+    .profile-container {
+        width: 100%;
+    }
+   
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .profile-container {
+        width: 80%;
+    }
+}
