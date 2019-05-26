@@ -8,13 +8,9 @@
                 <p class="index-header">Unicorn Attractor Bug Tracker</p><br> {% if user.is_authenticated %}
                 <p class="index-text">Welcome {{ user.username }} you can now add new features that you would like to be developed!</p>
                 {% else %}
-
-
-                <div class="center">
-
-                    <p class="index-text">Browse to view issues or register to add new bugs and features to the application!!</p>
+                    <p class="index-text">View issues or register to add new bugs and features to the application!!</p>
                     {% endif %}
-                </div>
+                
             </div>
 
             <div class="register-container">
