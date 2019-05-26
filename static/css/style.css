@@ -438,6 +438,13 @@ background-color: orange;
     color: #FFF;
     
 }
+
+.card-body-s {
+    background-color: rgba(255,255,255,.0); 
+    color: #000;
+    
+}
+
 .summary-table {
     width: 170px;
 }
