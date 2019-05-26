@@ -2,6 +2,8 @@
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container">
+    <div class="page-container">
+<div class="content-wrap">
     <div class="row">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1">
     <form method="post" action="{% url 'login' %}?next={{ next }}" class="accountform login-form">
@@ -17,4 +19,6 @@
     </div>
     </div>
 {% include 'footer.html' %}
+</div>
+</div>
 {% endblock %}
