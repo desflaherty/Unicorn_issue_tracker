@@ -5,6 +5,8 @@
         <div class="content-wrap">
             <div class='inline '>
                 <h1 class='feature-details-h'>{{items.name}}</h1>
+                 <input type="hidden" name="quantity" value="1">
+                    <a class="btn btn-primary" href="{% url 'bugs' %}">Back</a>
                 {% if user != None %} {% if user.username == 'admin' %}
                 <a href="{% url 'edit_bug' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>

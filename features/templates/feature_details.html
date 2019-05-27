@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block content%}
 
 <div class="container center">
-    <div class="container">
-        <div class="page-container">
+    <div class="page-container">
+        <div class="content-wrap">
             <div class='inline '>
                 <h1 class='feature-details-h'>{{items.name}}</h1>
+                <a class="btn btn-primary" href="{% url 'features' %}">Back</a>
                 {% if user.username == 'admin' %}
                 <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -12,7 +13,7 @@
                 <form class='inline' method="post" action="{% url 'add_to_cart' items.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="quantity" value="1">
-                    <a class="btn btn-primary" href="{% url 'features' %}">Back</a>
+                    
                     <button type='submit' class='btn btn-primary'>Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                 </form>
                 {% endif %} {% else %}
