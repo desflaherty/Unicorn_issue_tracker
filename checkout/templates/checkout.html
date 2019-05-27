@@ -7,58 +7,39 @@
 </script>
 <script type='text/javascript' src="{% static 'js/stripe.js' %}"></script>
 {% endblock head_js %} {% block content %}
-
 <div class="container">
-
     <h1 class="center">Payment Details</h1>
-
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1 center">
-
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
             {% csrf_token %}
-
-
             <div>
                 {{payment_form | as_bootstrap}}
             </div>
-
-
             <div class="card " style="max-width: 100%;">
-
                 <div class="bg-dark center">
                     <h4>Summary</h4>
                 </div>
-
                 <div class="card-body-s center">
-
                     <table class='summary-table inline'>
-
                         <tr class='bottom-border'>
                             <th>Feature Request</th>
                             <th>Price</th>
                         </tr>
-
                         {% for item in cart_items %}
                         <tr>
                             <td>{{ item.feature.name }}</td>
                             <td><i class="fa fa-eur" aria-hidden="true"></i>{{item.price}}</td>
                         </tr>
                         {% endfor %}
-
                     </table>
-
                     <hr class="mobile-hr">
-
                     <p class="card-text"><b>Total: </b>
                         <i class="fa fa-eur" aria-hidden="true"></i>{{total}}
                     </p>
-
                     <div style="color: red;" id="credit-card-errors" style="display:none">
                         <div class="alert-message block-message error" id="stripe-error-message"></div>
                     </div>
-
                 </div>
-
                 {% if total == 0 %}
                 <div class="form-group bg-dark center">
                     <button class="inline btn " role="button">Checkout</button>
@@ -69,20 +50,13 @@
                                     Now <i class="fa fa-credit-card" aria-hidden="true"></i></button>
                 </div>
                 {% endif %}
-
             </div>
     </div>
-
 </div>
-
 </form>
-
 </div>
 </div>
-
 </div>
-
-
 <p class="footer-text center">&copy;2019 Unicorn Attractor | Web design by Des Flaherty</p>
 
 

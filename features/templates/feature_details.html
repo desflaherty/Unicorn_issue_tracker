@@ -3,44 +3,28 @@
 <div class="container center">
     <div class="container">
         <div class="page-container">
-
             <div class='inline '>
                 <h1 class='feature-details-h'>{{items.name}}</h1>
-
-
                 {% if user.username == 'admin' %}
                 <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
         </a> {% endif %} {% if user.is_authenticated %} {% if items.id not in upvote_list %}
-
                 <form class='inline' method="post" action="{% url 'add_to_cart' items.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="quantity" value="1">
                     <a class="btn btn-primary" href="{% url 'features' %}">Back</a>
                     <button type='submit' class='btn btn-primary'>Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-
                 </form>
-
                 {% endif %} {% else %}
                 <div class='btn btn-primary'>Upvote<i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
                 {% endif %} {% if upvoted %}
                 <div class='btn btn-secondary'>Upvote Success!<i class="fa fa-smile-o" aria-hidden="true"></i></div>
                 {% else %}
                 <a class='btn btn-primary' href="{% url 'upvote_feature' items.id %}">Upvote <i class="fa fa-thumbs-up" aria-hidden="true"></i></a> {% endif %}
-
-
-
-
-
-
                 <br>
-
                 <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
                 <p class='inline upvotes text-shadow'><b>Upvotes:</b> {{items.upvotes}}</p><br>
-
-
                 <br>
-
                 <p class=' inline feature-text-b'>Status&#58;</p>
                 {% if items.status == 'ToDo' %}
                 <p class='inline status-todo'>{{ items.status }}</p>
@@ -49,46 +33,33 @@
                 {% elif items.status == 'Done' %}
                 <p class='inline status-done'>{{ items.status }}</p>
                 {% endif %}
-
             </div>
-
             <div class='center comments'>
                 <div class="feature-description inline">
                     <div>
                         <p class="creator-and-date inline"><b>{{items.username}}</b> {{items.created_date}}</p>
-
                         <p class='description inline'>{{items.description}}</p>
                     </div>
                 </div>
             </div>
-
             <div class="comments ">
-
                 <div class='margin-b-30'>
                     <h4 class='center'>Comments: ( {{ comments_number }} ) </h4>
                     <div class="short-line-white center"></div>
                 </div>
-
                 {% for comment in comments %}
                 <div class="user-comment inline">
-
                     <div>
                         <p class="creator-and-date inline">
                             <b>{{comment.username}}</b> {{comment.created_date}}
                         </p>
-
-
                         <p class='description inline'>{{comment.comment}}</p>
                     </div>
-
                 </div>
                 {% endfor %}
-
-
                 <div>
                     <form method="post" class="center" action="{% url 'add_comment_features' items.id %}">
                         {% csrf_token %}
-
                         <div id="div_id_comment" class="form-group  ">
                             <label for="id_comment" class="text-shadow control-label required-field ">
                         <h6>Add comment:</h6>
@@ -102,13 +73,9 @@
                         <div class="btn btn-primary inline">Post</div>
                         {% endif %}
                     </form>
-
                 </div>
-
-
             </div>
         </div>
-
         {% include 'footer.html' %}
     </div>
 </div>

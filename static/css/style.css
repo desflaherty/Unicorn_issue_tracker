@@ -17,15 +17,9 @@ body {
     padding-top: 100px;
 }
 
-
-
-
-
 .icon-bar {
     background-color: #fff;
 }
-
-
 
 .badge {
     padding-left: 9px;
@@ -111,11 +105,6 @@ caption p {
     margin-bottom: 10px;
 
 }
-
-
-
-
-
 
 
 /************** NAVBAR STYLING************************/
@@ -256,10 +245,6 @@ footer {
     /* Footer height */
 }
 
-
-
-
-
 /**************PROFILE FORM STYLING************************/
 
 .profile-head {
@@ -330,9 +315,6 @@ footer {
     background-color: rgba(255, 255, 255, .7);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
-
-
-
 
 .feature-description {
     margin-top: 20px;
