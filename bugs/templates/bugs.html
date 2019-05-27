@@ -9,17 +9,15 @@
                     <a href="bugs.html"><button class="btn-search">Reset</button></a>
                 </form>
             </div>
-
             <p class="feature-heading center">Bugs</p>
-
-
             <div class="feature-description center">
-                <p class="feature-text-b">We spend 50% of our time developing</P>
-                <P class="feature-text-b">the most upvoted Features!!</p>
-                <p class="feature-text-b">However add your bugs here and we will fix them for free!!
-                </p>
+                <p class="feature-text-b visible-lg visible-md visible-sm">We spend 50% of our time developing the most upvoted Features</p>
+                <p class="feature-text-b visible-xs">We spend 50% of our time developing</p>
+                <p class="feature-text-b visible-xs">the most upvoted Features</p>
+                <p class="feature-text-b visible-lg visible-md visible-sm">However add your bugs here and we will fix them for free!</p>
+                <p class="feature-text-b visible-xs">However add your bugs here,</p>
+                <p class="feature-text-b visible-xs">and we will fix them for free!</p>
             </div>
-
             {% if user.is_authenticated %}
             <div class='center'>
                 <a class='btn btn-primary add-feature-btn' href="{% url 'add_bug' %}"><i class="fa fa-plus"></i> Add

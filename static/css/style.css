@@ -559,11 +559,7 @@ th {
     }
 }
 
-@media screen and (max-width: 584px) {
-    .feature-text-b {
-        font-size: 12px;
-    }
-}
+
 
 @media (max-width: 375px) {
     .profile-container {
