@@ -9,16 +9,19 @@
                 {% if user.username == 'admin' %}
                 <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
             Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-        </a> {% endif %} {% if user.is_authenticated %} {% if items.id not in upvote_list %}
+        </a> {% endif %} 
+        {% if user.is_authenticated %} 
+        {% if items.id not in upvote_list %}
                 <form class='inline' method="post" action="{% url 'add_to_cart' items.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="quantity" value="1">
                     
                     <button type='submit' class='btn btn-primary'>Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                 </form>
-                {% endif %} {% else %}
-                <div class='btn btn-primary'>Upvote<i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
-                {% endif %} {% if upvoted %}
+                {% endif %}
+                
+                {% endif %}
+                {% if upvoted %}
                 <div class='btn btn-secondary'>Upvote Success!<i class="fa fa-smile-o" aria-hidden="true"></i></div>
                 {% else %}
                 <a class='btn btn-primary' href="{% url 'upvote_feature' items.id %}">Upvote <i class="fa fa-thumbs-up" aria-hidden="true"></i></a> {% endif %}
