@@ -142,6 +142,8 @@ caption p {
     padding: 10px;
 }
 
+
+
 /**************INDEX FORM STYLING************************/
 
 .index-header {
@@ -473,6 +475,10 @@ th {
 
 .reset-text {
     font-size: 30px;
+}
+
+.reset-text-s {
+    font-size: 20px;
 }
 
 .control-label {
