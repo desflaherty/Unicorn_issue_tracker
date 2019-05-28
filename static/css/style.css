@@ -301,7 +301,13 @@ footer {
 }
 
 
+
+
 /* search input box bg colour */
+
+#id_email { 
+  color: #000;
+}
 
 .input {
     background-color: whitesmoke;
