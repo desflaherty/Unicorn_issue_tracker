@@ -158,10 +158,13 @@ if the feature is being worked on
 
 ## Testing
 
-<a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
+<a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
 
-
-
+## Features left to implement
+* A page detailing the unicorn attractor app
+* Development of more graphs such as line graphs to show issues being worked on & fixed by date
+* Bonus points for more active users where they would receive a discount on future development
+* A blog for discussion and to generate interest 
 
 
 

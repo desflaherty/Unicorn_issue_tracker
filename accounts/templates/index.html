@@ -4,7 +4,10 @@
     <div class="page-container">
         <div class="content-wrap">
             <div class="col-sm-12 col-md-9 col-md-offset-1 col-lg-offset-3">
-                <p class="index-header">Unicorn Attractor Bug Tracker</p><br> {% if user.is_authenticated %}
+                <p class="index-header  visible-lg visible-md">Unicorn Attractor Bug Tracker</p>
+                <p class="index-header-s  visible-sm">Unicorn Attractor Bug Tracker</p>
+                <p class="index-header-xs visible-xs">Unicorn Attractor Bug Tracker</p>
+                <br> {% if user.is_authenticated %}
                 <p class="index-text">Welcome {{ user.username }} you can now add new features that you would like to be developed!</p>
                 {% else %}
                     <p class="index-text">View issues or register to add new bugs and features to the application!!</p>
