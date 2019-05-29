@@ -202,5 +202,24 @@ Host static files in Amazon Web Server
 * STATICFILES_LOCATION = 'static'
 * STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
+# Terminal
+* python3 manage.py collectstatic
 
+# Heroku ConfigVars
+Settings > Config Vars
+* DATABASE_URL | <my database_url key>
+* SECRET_KEY | <my secret key>
+* STRIPE_PUBLISHABLE | <my stripe key>
+* STRIPE_SECRET | <my stripe secret key>
+* DISABLE_COLLECTSTATIC | 1
+* AWS_ACCESS_KEY_ID | <my aws_access_key_id>
+* AWS_SECRET_ACCESS_KEY | <my aws_secret_access_key>
 
+# Terminal
+* pip install gunicorn, this will run the application
+* pip3 freeze --local > requirements.txt ( Creates a .txt file which tells Heroku what dependencies the project is using) 
+* echo web: gunicorn.wsgi:application > Procfile (Tells Heroku that this project is a web app and what to run)
+* git add .
+* git commit -m 'message'
+* git push
+* https://bugissue-tracker.herokuapp.com
