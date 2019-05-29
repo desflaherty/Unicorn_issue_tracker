@@ -152,14 +152,10 @@ caption p {
 }
 
 .index-header-s {
-    font-size: 30px;
+    font-size: 40px;
     margin-bottom: 80px;
 }
 
-.index-header-xs {
-    font-size: 20px;
-    margin-bottom: 80px;
-}
 
 .index-text {
     font-size: 20px;
