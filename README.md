@@ -152,7 +152,7 @@ if the feature is being worked on
 * https://stripe.com/ie
 
 ## Validation
-* HTML:Checked with W3C validator. Only Jinja related errors due to the validation not programmed these
+* HTML:Checked with W3C validator. No HTML errors were displayed.
 * CSS:Checked with CSS lint. No errors were displayed
 * Python: PEP8 was used to check code for any major errors
 
@@ -166,6 +166,41 @@ if the feature is being worked on
 * Bonus points for more active users where they would receive a discount on future development
 * A blog for discussion and to generate interest 
 
+## Deployment
+#  Heroku
+* Created a new app called 'bugissue-tracker'
+* Under 'Deploy' connected to the githib respository 
+* Under 'Resources' add a Postgres database
+
+# In settings.py
+* ALLOWED_HOSTS=['bugissue-tracker.herokuapp.com']
+
+
+# Terminal
+* pip install dj_database_url, This allows django to connect to the heroku database url.
+* pip install psycopg2,to connect to the postgres databases.
+
+# In settings.py
+* Import dj_database_url
+* DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+
+# Terminal
+Create a new database and a superuser
+* python manage.py migrate
+* python manage.py createsuperuser
+
+# In settings.py
+Host static files in Amazon Web Server
+
+* AWS_STORAGE_BUCKET_NAME = 'desnewbugissuetracker'
+* AWS_S3_REGION_NAME = 'eu-west-1'
+* AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+* AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+
+* AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+* STATICFILES_LOCATION = 'static'
+* STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
 
 
