@@ -26,7 +26,7 @@ As a user of the issue tracker I should be able to:
 * View the status of each bug or feature to see what is currently being worked on
 * View graphs summarising the total issues being tracked by the web app by their current status
 
-A mockup for the proposed cookbook can be viewed on github 
+## A mockup for the proposed app can be viewed on github 
 https://github.com/desflaherty/Unicorn_issue_tracker/tree/master/wireframes
 
 ## Existing Features
@@ -150,6 +150,15 @@ if the feature is being worked on
 *Stripe*
 * Used for the set up and processing of user payments.
 * https://stripe.com/ie
+
+## Validation
+* HTML:Checked with W3C validator. Only Jinja related errors due to the validation not programmed these
+* CSS:Checked with CSS lint. No errors were displayed
+* Python: PEP8 was used to check code for any major errors
+
+## Testing
+
+<a href="https://github.com/desflaherty/milestoneproject3/blob/master/Manual_testing.md">Manual Testing</a>
 
 
 
