@@ -9,15 +9,15 @@
                     <a href="bugs.html"><button class="btn-search">Reset</button></a>
                 </form>
             </div>
-            <p class="feature-heading center">Bugs</p>
-            <div class="feature-description center">
-                <p class="feature-text-b visible-lg visible-md visible-sm">Add any bugs you find on the site here and we will fix them for free!</p>
-                <p class="feature-text-b visible-xs">Add any bugs you find on the site here,</p>
-                <p class="feature-text-b visible-xs">and we will fix them for free!</p>
+           <legend class="legend center">Bugs</legend>
+            <div class="section-description center">
+                <p class="section-text-b visible-lg visible-md visible-sm">Add any bugs you find on the site here and we will fix them for free!</p>
+                <p class="section-text-b visible-xs">Add any bugs you find on the site here,</p>
+                <p class="section-text-b visible-xs">and we will fix them for free!</p>
             </div>
             {% if user.is_authenticated %}
             <div class='center'>
-                <a class='btn btn-primary add-feature-btn' href="{% url 'add_bug' %}"><i class="fa fa-plus"></i> Add
+                <a class='btn btn-primary add-section-btn' href="{% url 'add_bug' %}"><i class="fa fa-plus"></i> Add
             Bugs</a>
             </div>
             {% endif %}
@@ -32,8 +32,8 @@
                         {% elif bug.status == 'Done' %}
                         <p class='green circle'></p>
                         {% endif %}
-                        <h4 class="feature-text-b">{{bug.name }}</h4>
-                        <p class=' inline feature-text-b'>Status&#58;</p>
+                        <h4 class="section-text-b">{{bug.name }}</h4>
+                        <p class=' inline section-text-b'>Status&#58;</p>
                         {% if bug.status == 'ToDo' %}
                         <p class='inline status-todo'>{{ bug.status }}</p>
                         {% elif bug.status == 'Doing' %}

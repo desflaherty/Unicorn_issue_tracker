@@ -8,6 +8,7 @@
 <script type='text/javascript' src="{% static 'js/stripe.js' %}"></script>
 {% endblock head_js %} {% block content %}
 <div class="container">
+    <legend class="legend center">Checkout</legend>
     <h1 class="center">Payment Details</h1>
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-offset-1 center">
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">

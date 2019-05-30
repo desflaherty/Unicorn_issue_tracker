@@ -302,7 +302,7 @@ footer {
     color: #FFF;
 }
 
-.feature-heading {
+.section-heading {
     font-size: 40px;
 }
 
@@ -330,16 +330,16 @@ footer {
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.feature-description {
+.section-description {
     margin-top: 20px;
 }
 
-.feature-text-b {
+.section-text-b {
     font-weight: bold;
     margin-top: 10px;
 }
 
-.add-feature-btn {
+.add-section-btn {
     margin-top: 20px;
 }
 
@@ -355,10 +355,6 @@ footer {
 
 .status-done {
     color: green;
-    font-weight: bold;
-}
-
-.feature-text-b {
     font-weight: bold;
 }
 
@@ -409,7 +405,7 @@ footer {
     font-size: 14px;
 }
 
-.feature-details-h {
+.section-details-h {
     padding-bottom: 20px;
 }
 

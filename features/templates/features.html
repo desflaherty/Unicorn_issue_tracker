@@ -9,20 +9,20 @@
                     <a href="features.html"><button class="btn-search">Reset</button></a>
                 </form>
             </div>
-            <p class="feature-heading center">Features</p>
-            <div class="feature-description center">
-                <p class="feature-text-b visible-lg visible-md visible-sm">If there is a Feature you would like to have developed, you can add that Feature to your cart </p>
-                <p class="feature-text-b visible-lg visible-md visible-sm">and checkout at a cost of €100 per upvote. We spend 50% of our time developing the most upvoted Feature</p>
-                <p class="feature-text-b visible-xs">If there is a Feature you would</p>
-                <p class="feature-text-b visible-xs">like to have developed you can add</p>
-                <p class="feature-text-b visible-xs">that Feature to your cart and checkout </p>
-                <p class="feature-text-b visible-xs">at a cost of €100 per upvote</p>
-                <p class="feature-text-b visible-xs">We spend 50% of our time developing</p>
-                <p class="feature-text-b visible-xs">the most upvoted Feature</p>
+            <legend class="legend center">Features</legend>
+            <div class="section-description center">
+                <p class="section-text-b visible-lg visible-md visible-sm">If there is a Feature you would like to have developed, you can add that Feature to your cart </p>
+                <p class="section-text-b visible-lg visible-md visible-sm">and checkout at a cost of €100 per upvote. We spend 50% of our time developing the most upvoted Feature</p>
+                <p class="section-text-b visible-xs">If there is a Feature you would</p>
+                <p class="section-text-b visible-xs">like to have developed you can add</p>
+                <p class="section-text-b visible-xs">that Feature to your cart and checkout </p>
+                <p class="section-text-b visible-xs">at a cost of €100 per upvote</p>
+                <p class="section-text-b visible-xs">We spend 50% of our time developing</p>
+                <p class="section-text-b visible-xs">the most upvoted Feature</p>
             </div>
             {% if user.is_authenticated %}
             <div class='center'>
-                <a class='btn btn-primary add-feature-btn' href="{% url 'add_feature' %}"><i class="fa fa-plus"></i> Add
+                <a class='btn btn-primary add-section-btn' href="{% url 'add_feature' %}"><i class="fa fa-plus"></i> Add
             Feature</a>
             </div>
             {% endif %}
@@ -37,8 +37,8 @@
                         {% elif feature.status == 'Done' %}
                         <p class='green circle'></p>
                         {% endif %}
-                        <h4 class="feature-text-b">{{feature.name }}</h4>
-                        <p class=' inline feature-text-b'>Status&#58;</p>
+                        <h4 class="section-text-b">{{feature.name }}</h4>
+                        <p class=' inline section-text-b'>Status&#58;</p>
                         {% if feature.status == 'ToDo' %}
                         <p class='inline status-todo'>{{ feature.status }}</p>
                         {% elif feature.status == 'Doing' %}

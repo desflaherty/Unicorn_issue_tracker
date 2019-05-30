@@ -4,7 +4,7 @@
     <div class="page-container">
         <div class="content-wrap">
             <div class='inline '>
-                <h1 class='feature-details-h'>{{items.name}}</h1>
+                <h1 class='section-details-h'>{{items.name}}</h1>
                 <a class="btn btn-primary" href="{% url 'features' %}">Back</a>
                 {% if user.username == 'admin' %}
                 <a href="{% url 'edit_feature' items.id %}" class='btn btn-primary'>
@@ -29,7 +29,7 @@
                 <p class='inline views text-shadow'><b>Views:</b> {{items.views}} </p>
                 <p class='inline upvotes text-shadow'><b>Upvotes:</b> {{items.upvotes}}</p><br>
                 <br>
-                <p class=' inline feature-text-b'>Status&#58;</p>
+                <p class=' inline section-text-b'>Status&#58;</p>
                 {% if items.status == 'ToDo' %}
                 <p class='inline status-todo'>{{ items.status }}</p>
                 {% elif items.status == 'Doing' %}
@@ -39,7 +39,7 @@
                 {% endif %}
             </div>
             <div class='center comments'>
-                <div class="feature-description inline">
+                <div class="section-description inline">
                     <div>
                         <p class="creator-and-date inline"><b>{{items.username}}</b> {{items.created_date}}</p>
                         <p class='description inline'>{{items.description}}</p>
