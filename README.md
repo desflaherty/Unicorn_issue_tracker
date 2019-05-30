@@ -7,6 +7,10 @@ bugs and features once they have registered on the site and can add features to 
 * Project has been published to the Heroku website https://bugissue-tracker.herokuapp.com
 * The github repository is located at https://github.com/desflaherty/Unicorn_issue_tracker
 
+For testing purposes the admin logon can be used to add new bugs/features, edit existing bugs/features and to add or
+change the status of the bugs and features on the site.
+* Username:admin
+* Password: admin1234
 
 ## UX
 
@@ -127,6 +131,7 @@ if the feature is being worked on
 
 *Bootswatch*
 * A template for Bootstrap
+* https://bootswatch.com/
 
 *HTML5*
 * Positioning and format of html elements.
@@ -151,6 +156,14 @@ if the feature is being worked on
 * Used for the set up and processing of user payments.
 * https://stripe.com/ie
 
+*Travis CI*
+* Used to build and test software projects hosted on github
+* https://travis-ci.com
+
+*GitHub*
+* Used for collaboration and version control
+* https://github.com/
+
 ## Validation
 * HTML:Checked with W3C validator. No HTML errors were displayed.
 * CSS:Checked with CSS lint. No errors were displayed
@@ -158,7 +171,8 @@ if the feature is being worked on
 
 ## Testing
 
-<a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
+* a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
+* Travis continuous integration was used to clone the GitHub repository and test the build with a green status of passing 
 
 ## Features left to implement
 * A page detailing the unicorn attractor app
@@ -167,45 +181,42 @@ if the feature is being worked on
 * A blog for discussion and to generate interest 
 
 ## Deployment
-#  Heroku
+### Heroku
 * Created a new app called 'bugissue-tracker'
 * Under 'Deploy' connected to the githib respository 
 * Under 'Resources' add a Postgres database
 
-# In settings.py
+*In settings.py*
 * ALLOWED_HOSTS=['bugissue-tracker.herokuapp.com']
 
-
-# Terminal
+*Terminal*
 * pip install dj_database_url, This allows django to connect to the heroku database url.
 * pip install psycopg2,to connect to the postgres databases.
 
-# In settings.py
+*In settings.py*
 * Import dj_database_url
 * DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
-# Terminal
+*Terminal*
 Create a new database and a superuser
 * python manage.py migrate
 * python manage.py createsuperuser
 
-# In settings.py
+*In settings.py*
 Host static files in Amazon Web Server
 
 * AWS_STORAGE_BUCKET_NAME = 'desnewbugissuetracker'
 * AWS_S3_REGION_NAME = 'eu-west-1'
 * AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 * AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-
 * AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
 * STATICFILES_LOCATION = 'static'
 * STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
-# Terminal
+*Terminal*
 * python3 manage.py collectstatic
 
-# Heroku ConfigVars
+*Heroku ConfigVars*
 Settings > Config Vars
 * DATABASE_URL | <my database_url key>
 * SECRET_KEY | <my secret key>
@@ -215,11 +226,44 @@ Settings > Config Vars
 * AWS_ACCESS_KEY_ID | <my aws_access_key_id>
 * AWS_SECRET_ACCESS_KEY | <my aws_secret_access_key>
 
-# Terminal
+*Terminal*
 * pip install gunicorn, this will run the application
-* pip3 freeze --local > requirements.txt ( Creates a .txt file which tells Heroku what dependencies the project is using) 
+* pip3 freeze --local > requirements.txt (Creates a .txt file which tells Heroku what dependencies the project is using) 
 * echo web: gunicorn.wsgi:application > Procfile (Tells Heroku that this project is a web app and what to run)
 * git add .
 * git commit -m 'message'
 * git push
 * https://bugissue-tracker.herokuapp.com
+
+## Running locally
+
+* Clone the respository found here https://github.com/desflaherty/Unicorn_issue_tracker
+* Install the applictions found in the requirements file https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/requirements.txt
+* In settings.py uncomment import env to import the env.py file
+
+### Env.py
+Create an env.py file and enter the following with your own keys.
+import os
+os.environ.setdefault('SECRET_KEY', <'secret key'>)
+os.environ.setdefault("STRIPE_PUBLISHABLE", <'stripe publishable key'>)
+os.environ.setdefault("STRIPE_SECRET", <'stripe secret key'>)
+os.environ.setdefault("AWS_ACCESS_KEY_ID", <aws_access_key_id)
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY","<aws_secret_access_key>")
+os.environ.setdefault("DATABASE_URL","<database_url>")
+
+### Stripe
+Set up an account https://stripe.com/ie and create an account.
+* Dashboard > Developers > API keys to locate your API key
+* Take note of your publishable and secret key that gets entered into the env.py file locally and Heroku settings
+* For stripe payment use the fake credit card number 4242424242424242 
+
+## Credits 
+* Background image was sourced from https://unsplash.com/
+* Images used for the graphs were sourced from https://www.flaticon.com/
+* https://stackoverflow.com/ was used for coding issues
+* The slack forum was used for discussion with students on various topics during project development 
+
+
+
+
+
