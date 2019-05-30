@@ -31,7 +31,7 @@ As a user of the issue tracker I should be able to:
 * View graphs summarising the total issues being tracked by the web app by their current status
 
 ## A mockup for the proposed app can be viewed on github 
-https://github.com/desflaherty/Unicorn_issue_tracker/tree/master/wireframes
+<a href="https://github.com/desflaherty/Unicorn_issue_tracker/tree/master/wireframes">Wireframes</a>
 
 ## Existing Features
 *Header and Footer*
@@ -171,7 +171,7 @@ if the feature is being worked on
 
 ## Testing
 
-* a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
+<a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
 * Travis continuous integration was used to clone the GitHub repository and test the build with a green status of passing 
 
 ## Features left to implement
@@ -243,13 +243,13 @@ Settings > Config Vars
 
 ### Env.py
 Create an env.py file and enter the following with your own keys.
-import os
-os.environ.setdefault('SECRET_KEY', <'secret key'>)
-os.environ.setdefault("STRIPE_PUBLISHABLE", <'stripe publishable key'>)
-os.environ.setdefault("STRIPE_SECRET", <'stripe secret key'>)
-os.environ.setdefault("AWS_ACCESS_KEY_ID", <aws_access_key_id)
-os.environ.setdefault("AWS_SECRET_ACCESS_KEY","<aws_secret_access_key>")
-os.environ.setdefault("DATABASE_URL","<database_url>")
+* import os
+* os.environ.setdefault('SECRET_KEY', <'secret key'>)
+* os.environ.setdefault("STRIPE_PUBLISHABLE", <'stripe publishable key'>)
+* os.environ.setdefault("STRIPE_SECRET", <'stripe secret key'>)
+* os.environ.setdefault("AWS_ACCESS_KEY_ID", <aws_access_key_id)
+* os.environ.setdefault("AWS_SECRET_ACCESS_KEY","<aws_secret_access_key>")
+* os.environ.setdefault("DATABASE_URL","<database_url>")
 
 ### Stripe
 Set up an account https://stripe.com/ie and create an account.
