@@ -170,8 +170,7 @@ if the feature is being worked on
 * Python: PEP8 was used to check code for any major errors
 
 ## Testing
-
-<a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
+* Manual testing of the site functionality and navigation can be viewed here:<a href="https://github.com/desflaherty/Unicorn_issue_tracker/blob/master/Manual_Testing.md">Manual Testing</a>
 * Travis continuous integration was used to clone the GitHub repository and test the build with a green status of passing 
 
 ## Features left to implement
@@ -252,7 +251,7 @@ Create an env.py file and enter the following with your own keys.
 * os.environ.setdefault("DATABASE_URL","<database_url>")
 
 ### Stripe
-Set up an account https://stripe.com/ie and create an account.
+Set up an account on https://stripe.com/ie
 * Dashboard > Developers > API keys to locate your API key
 * Take note of your publishable and secret key that gets entered into the env.py file locally and Heroku settings
 * For stripe payment use the fake credit card number 4242424242424242 
